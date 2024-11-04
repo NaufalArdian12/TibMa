@@ -29,7 +29,7 @@
             </div>
             <!-- menu btn -->
             <div class="flex">
-                <a href="/login" class="mr-10 hidden rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 duration-200 hover:bg-purple-600 sm:block lg:mr-0">Login</a>
+                <a href="<?= BASE_URL;?>/login" class="mr-10 hidden rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 duration-200 hover:bg-purple-600 sm:block lg:mr-0">Login</a>
 
                 <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'" id="navbarToggler" class="block lg:hidden">
                     <ion-icon name="menu-outline" class="text-4xl text-purple-500"></ion-icon>

@@ -6,8 +6,8 @@
       <h2 class="font-bold text-2xl text-gray-800">Login</h2>
       <p class="text-sm mt-4 text-gray-500">If you are already a member, easily log in</p>
 
-      <form action="" class="flex flex-col gap-4">
-        <input class="p-2 text-base mt-8 rounded-md border" type="email" name="email" placeholder="Email">
+      <form action="<?= BASE_URL; ?>/login/authenticate" method="post" class="flex flex-col gap-4">
+        <input class="p-2 text-base mt-8 rounded-md border" type="text" name="username" placeholder="Username">
         <div class="relative">
           <input class="p-2 rounded-md border w-full" type="password" name="password" placeholder="Password">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@
 
       <div class="mt-3 text-xs flex justify-between items-center text-[#002D74]">
         <p>Don't have an account?</p>
-        <button class="py-2 px-5 bg-white border rounded-md hover:bg-purple-600 duration-200 hover:text-white">Register</button>
+        <a href="<?= BASE_URL; ?>/register" class="py-2 px-5 bg-white border rounded-md hover:bg-purple-600 duration-200 hover:text-white">Register</a>
       </div>
     </div>
 
