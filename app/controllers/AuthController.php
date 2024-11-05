@@ -18,24 +18,25 @@ class AuthController extends Controller
             // Ambil data input dari form login
             $username = $_POST['username'];
             $password = $_POST['password'];
-
+            
             // Muat model user untuk verifikasi
             $userModel = $this->model('user\UserModels');
             $user = $userModel->findUserByUsername($username);
-
+            $authenticated = $userModel->verifyPassword($username, $password);
+var_dump($authenticated);
             // Periksa apakah user ditemukan dan password valid
-            if ($user && $userModel->verifyPassword($username, $password)) {
+            if ($authenticated) {
                 // Jika valid, simpan session dan tampilkan pesan login berhasil
                 session_start();
                 $_SESSION['user'] = $user['username'];
                 echo "Login berhasil! Selamat datang, " . $_SESSION['user'];
-                exit;
+                
             } else {
                 // Jika tidak valid, tampilkan pesan error
                 $data = ['title' => 'Login', 'error' => 'Username atau password salah.'];
-                $this->view('templates/header', $data);
+                $this->view('templats/header', $data);
                 $this->view('auth/login', $data);
-                $this->view('templates/footer');
+                $this->view('templats/footer');
             }
             
         } else {
@@ -48,19 +49,19 @@ class AuthController extends Controller
 
     function register(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $salt = bin2hex(random_bytes(16));
+            $salt = bin2hex(random_bytes(8));
             $password_hash = hash('sha256', $_POST['password'] . $salt);
             $userModel = $this->model('user\UserModels');
-            $userModel->username = $_POST['username'];
-            $userModel->salt = $salt;
-            $userModel->password_hash = $password_hash;
-            $userModel->email = $_POST['email'];
-            $userModel->first_name = $_POST['first_name'];
-            $userModel->last_name = $_POST['last_name'];
+            $userModel->setUsername($_POST['username']);
+            $userModel->setSalt($salt);
+            $userModel->setPassword($password_hash);
+            $userModel->setEmail($_POST['email']);
+            $userModel->setFirstName($_POST['first_name']);
+            $userModel->setLastName($_POST['last_name']);
             $userModel->save();
-            echo "$userModel ditemukan dan diinisialisasi";
         }
         $data = ['title' => 'Register'];
+        
         $this->view('templats/header', $data);
         $this->view('auth/register');
         $this->view('templats/footer');

@@ -6,7 +6,7 @@
       <h2 class="font-bold text-2xl text-gray-800">Login</h2>
       <p class="text-sm mt-4 text-gray-500">If you are already a member, easily log in</p>
 
-      <form action="<?= BASE_URL; ?>/login/authenticate" method="post" class="flex flex-col gap-4">
+      <form action="<?= BASE_URL; ?>/authenticate" method="post" class="flex flex-col gap-4">
         <input class="p-2 text-base mt-8 rounded-md border" type="text" name="username" placeholder="Username">
         <div class="relative">
           <input class="p-2 rounded-md border w-full" type="password" name="password" placeholder="Password">
