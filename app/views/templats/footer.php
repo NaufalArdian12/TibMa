@@ -19,6 +19,7 @@
       this.classList.add('text-purple-500'); // Warna aktif
     });
   });
+  
 </script>
 </body>
 

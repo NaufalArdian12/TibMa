@@ -4,8 +4,10 @@ class AuthController extends Controller
 {
     public function index()
     {
-        // Tampilkan halaman login
         $data = ['title' => 'Login'];
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $_SESSION['redirect_url'] = $_SERVER['HTTP_REFERER'];
+        }
         $this->view('templats/header', $data);
         $this->view('auth/login');
         $this->view('templats/footer');
@@ -13,66 +15,97 @@ class AuthController extends Controller
 
     public function authenticate()
     {
-        // Pastikan metode permintaan adalah POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Ambil data input dari form login
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = htmlspecialchars(trim($_POST['username']));
+            $password = htmlspecialchars(trim($_POST['password']));
 
-            // Muat model user untuk verifikasi
+            if (empty($username) || empty($password)) {
+                $data = ['title' => 'Login', 'error' => 'Please fill out all fields.'];
+                return $this->renderLoginView($data);
+            }
+
             $userModel = $this->model('user\UserModels');
             $user = $userModel->findUserByUsername($username);
-            $authenticated = $userModel->verifyPassword($username, $password);
-            var_dump($authenticated);
-            // Periksa apakah user ditemukan dan password valid
-            if ($authenticated) {
-                // Jika valid, simpan session dan tampilkan pesan login berhasil
+
+            if ($user && $this->verifyPassword($password, $user['password_hash'], $user['salt'])) {
                 session_start();
+                session_regenerate_id(true);  // Prevent session fixation attacks
                 $_SESSION['user'] = $user['username'];
-                echo "Login berhasil! Selamat datang, " . $_SESSION['user'];
+                header("Location:". BASE_URL . "/dashboard");  // Redirect after login
+                exit;
             } else {
-                // Jika tidak valid, tampilkan pesan error
-                $data = ['title' => 'Login', 'error' => 'Username atau password salah.'];
-                $this->view('templats/header', $data);
-                $this->view('auth/login', $data);
-                $this->view('templats/footer');
+                $data = ['title' => 'Login', 'error' => 'Invalid username or password.'];
+                return $this->renderLoginView($data);
             }
         } else {
-            // Jika metode bukan POST, alihkan ke halaman login
             header("Location: /login");
             exit;
         }
     }
 
+    private function renderLoginView($data)
+    {
+        $this->view('templats/header', $data);
+        $this->view('auth/login', $data);
+        $this->view('templats/footer');
+    }
 
-    function register()
+    public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = htmlspecialchars(trim($_POST['username']));
+            $password = htmlspecialchars(trim($_POST['password']));
+            $email = htmlspecialchars(trim($_POST['email']));
+            $firstName = htmlspecialchars(trim($_POST['first_name']));
+            $lastName = htmlspecialchars(trim($_POST['last_name']));
+
+            if (empty($username) || empty($password) || empty($email) || empty($firstName) || empty($lastName)) {
+                $data = ['title' => 'Register', 'error' => 'All fields are required.'];
+                return $this->renderRegisterView($data);
+            }
+
             $salt = bin2hex(random_bytes(8));
-            $password_hash = hash('sha256', $_POST['password'] . $salt);
+            $password_hash = hash('sha256', $password . $salt);
+
             $userModel = $this->model('user\UserModels');
-            $userModel->setUsername($_POST['username']);
+            $userModel->setUsername($username);
             $userModel->setSalt($salt);
             $userModel->setPassword($password_hash);
-            $userModel->setEmail($_POST['email']);
-            $userModel->setFirstName($_POST['first_name']);
-            $userModel->setLastName($_POST['last_name']);
-            $userModel->save();
-        }
-        $data = ['title' => 'Register'];
+            $userModel->setEmail($email);
+            $userModel->setFirstName($firstName);
+            $userModel->setLastName($lastName);
 
+            if ($userModel->save()) {
+                header("Location: /login?registered=success");
+                exit;
+            } else {
+                $data = ['title' => 'Register', 'error' => 'Registration failed. Please try again.'];
+                return $this->renderRegisterView($data);
+            }
+        }
+
+        $data = ['title' => 'Register'];
+        $this->renderRegisterView($data);
+    }
+
+    private function renderRegisterView($data)
+    {
         $this->view('templats/header', $data);
-        $this->view('auth/register');
+        $this->view('auth/register', $data);
         $this->view('templats/footer');
     }
 
     public function logout()
     {
-        // Hapus session dan alihkan ke halaman login
         session_start();
         session_unset();
         session_destroy();
         header("Location: /login");
         exit;
+    }
+
+    private function verifyPassword($password, $hash, $salt)
+    {
+        return hash('sha256', $password . $salt) === $hash;
     }
 }
