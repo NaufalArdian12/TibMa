@@ -1,4 +1,3 @@
-
 <body>
 
     <div class="wrapper">
@@ -10,7 +9,7 @@
             <!-- Sidenav Logo -->
             <div class="sticky top-0 flex h-topbar items-center justify-center px-6 border-b border-default-200 .bg-primary/5">
                 <a href="index.html">
-                    <img src="<?= BASE_URL;?>/img/tibma logo.png" alt="logo" class="flex h-10">
+                    <img src="<?= BASE_URL; ?>/img/tibma logo.png" alt="logo" class="flex h-10">
                 </a>
             </div>
 
@@ -48,7 +47,7 @@
                         <a href="javascript:void(0)"
                             class="hs-accordion-toggle group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 hs-accordion-active:bg-primary/10 hs-accordion-active:text-primary">
                             <i class="i-solar-box-minimalistic-bold-duotone text-2xl"></i>
-                            <span class="menu-text"> Components </span>
+                            <span class="menu-text"> Manage </span>
                             <span
                                 class="i-tabler-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></span>
                         </a>
@@ -76,112 +75,6 @@
                                         Avatars
                                     </a>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-buttons.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Buttons
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-badges.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Badges
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-breadcrumbs.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Breadcrumbs
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-cards.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Cards
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-collapse.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Collapse
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-dropdowns.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Dropdowns
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-progress.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Progress
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-spinners.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Spinners
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-skeleton.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Skeleton
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-ratio.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Ratio
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-modals.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Modals
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-offcanvas.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Offcanvas
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-popovers.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Popovers
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-tooltips.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Tooltips
-                                    </a>
-                                </li>
-                                <li class="menu-item">
-                                    <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5"
-                                        href="ui-typography.html">
-                                        <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                                        Typography
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </li>
 
@@ -333,7 +226,7 @@
                 <div class="container flex items-center gap-4">
                     <!-- Topbar Brand Logo -->
                     <a href="index.html" class="md:hidden flex">
-                        <img src="<?= BASE_URL;?>/img/logo-sm.png" class="h-6" alt="Small logo">
+                        <img src="<?= BASE_URL; ?>/img/logo-sm.png" class="h-6" alt="Small logo">
                     </a>
 
                     <!-- Sidenav Menu Toggle Button -->
@@ -358,35 +251,35 @@
                     <!-- Language Dropdown Button -->
                     <div class="ms-auto hs-dropdown relative inline-flex [--placement:bottom-right]">
                         <button type="button" class="hs-dropdown-toggle inline-flex items-center">
-                            <img src="<?= BASE_URL;?>/img/flags/us.jpg" alt="user-image" class="h-4 w-6">
+                            <img src="<?= BASE_URL; ?>/img/flags/us.jpg" alt="user-image" class="h-4 w-6">
                         </button>
 
                         <div
                             class="hs-dropdown-menu duration mt-2 min-w-48 rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 hidden">
                             <a href="javascript:void(0);"
                                 class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100">
-                                <img src="<?= BASE_URL;?>/img/flags/germany.jpg" alt="user-image" class="h-4">
+                                <img src="<?= BASE_URL; ?>/img/flags/germany.jpg" alt="user-image" class="h-4">
                                 <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);"
                                 class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100">
-                                <img src="<?= BASE_URL;?>/img/flags/italy.jpg" alt="user-image" class="h-4">
+                                <img src="<?= BASE_URL; ?>/img/flags/italy.jpg" alt="user-image" class="h-4">
                                 <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);"
                                 class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100">
-                                <img src="<?= BASE_URL;?>/img/flags/spain.jpg" alt="user-image" class="h-4">
+                                <img src="<?= BASE_URL; ?>/img/flags/spain.jpg" alt="user-image" class="h-4">
                                 <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);"
                                 class="flex items-center gap-2.5 py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100">
-                                <img src="<?= BASE_URL;?>/img/flags/russia.jpg" alt="user-image" class="h-4">
+                                <img src="<?= BASE_URL; ?>/img/flags/russia.jpg" alt="user-image" class="h-4">
                                 <span class="align-middle">Russian</span>
                             </a>
                         </div>
@@ -407,7 +300,7 @@
                     <div class="relative">
                         <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
                             <button type="button" class="hs-dropdown-toggle">
-                                <img src="<?= BASE_URL;?>/img/users/avatar-8.jpg" alt="user-image" class="rounded-full h-10">
+                                <img src="<?= BASE_URL; ?>/img/users/avatar-8.jpg" alt="user-image" class="rounded-full h-10">
                             </button>
                             <div
                                 class="hs-dropdown-menu duration mt-2 min-w-48 rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 hidden">
@@ -477,7 +370,7 @@
                         </div>
                         <div id="total-order"></div>
                     </div>
-                    
+
                     <div class="card group overflow-hidden transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5">
                         <div class="card-body">
                             <div class="flex items- justify-between">
@@ -806,20 +699,20 @@
     </div>
 
     <!-- Plugin Js (Mandatory in All Pages) -->
-    <script src="<?= BASE_URL;?>/libs/jquery/jquery.min.js"></script>
-    <script src="<?= BASE_URL;?>/libs/preline/preline.js"></script>
-    <script src="<?= BASE_URL;?>/libs/simplebar/simplebar.min.js"></script>
-    <script src="<?= BASE_URL;?>/libs/iconify-icon/iconify-icon.min.js"></script>
-    <script src="<?= BASE_URL;?>/libs/node-waves/waves.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/jquery/jquery.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/preline/preline.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/simplebar/simplebar.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/iconify-icon/iconify-icon.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/node-waves/waves.min.js"></script>
 
     <!-- App Js (Mandatory in All Pages) -->
-    <script src="<?= BASE_URL;?>/js/app.js"></script>
+    <script src="<?= BASE_URL; ?>/js/app.js"></script>
 
     <!-- Apexcharts js -->
-    <script src="<?= BASE_URL;?>/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/apexcharts/apexcharts.min.js"></script>
 
     <!-- Vector Map Js -->
-    <script src="<?= BASE_URL;?>/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="<?= BASE_URL; ?>/libs/jsvectormap/js/jsvectormap.min.js"></script>
 
     <!-- Dashboard Project Page js -->
-    <script src="<?= BASE_URL;?>/js/pages/dashboard.js"></script>
+    <script src="<?= BASE_URL; ?>/js/pages/dashboard.js"></script>
