@@ -23,13 +23,11 @@
                         </a>
                     </li>
 
-                    <li class="px-5 py-2 text-sm font-medium text-default-600">Page</li>
-
                     <li class="menu-item">
                         <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5"
                             href="app-calendar.html">
-                            <i class="i-solar-calendar-bold-duotone text-2xl"></i>
-                            Calendar
+                            <i class="i-solar-clipboard-bold-duotone text-2xl"></i>
+                            Reports
                         </a>
                     </li>
 
