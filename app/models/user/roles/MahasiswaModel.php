@@ -1,36 +1,54 @@
 <?php
-class MahasiswaModel extends UserModels {
-  private $nim;
-  private $jurusan;
-  private $semester;
 
-  public function __construct($username, $password, $email, $first_name, $last_name, $nim, $jurusan, $semester) {
-      parent::__construct($username, $password, $email, $first_name, $last_name);
-      $this->role = 'mahasiswa';
-      $this->nim = $nim;
-      $this->jurusan = $jurusan;
-      $this->semester = $semester;
-  }
+class MahasiswaModel implements DBModel {
+    protected string $nim;
+    protected string $idUser;
+    protected string $prodi;
 
-  // Getter methods
-  public function getNim() {
-      return $this->nim;
-  }
+    public function __construct($nim, $idUser, $prodi) {
+        $this->nim = $nim;
+        $this->idUser = $idUser;
+        $this->prodi = $prodi;
+    }
 
-  public function getJurusan() {
-      return $this->jurusan;
-  }
+    public static function fromStdClass($stdClass): MahasiswaModel {
+        return new MahasiswaModel(
+            $stdClass->nim,
+            $stdClass->id_user,
+            $stdClass->prodi
+        );
+    }
 
-  public function getSemester() {
-      return $this->semester;
-  }
+    public function getNim() {
+        return $this->nim;
+    }
 
-  // Setter methods
-  public function setJurusan($jurusan) {
-      $this->jurusan = $jurusan;
-  }
+    public function getIdUser() {
+        return $this->idUser;
+    }
 
-  public function setSemester($semester) {
-      $this->semester = $semester;
-  }
+    public function getProdi() {
+        return $this->prodi;
+    }
+
+    public static function getProdiChoices(): array {
+        return [
+            'Teknik Informatika',
+            'Sistem Informasi Bisnis',
+            'Pengembangan Piranti Lunak Situs'
+        ];
+    }
+
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+
+    public function setIdUser($idUser) {
+        $this->idUser = $idUser;
+    }
+
+    public function setProdi($prodi) {
+        $this->prodi = $prodi;
+    }
+
 }

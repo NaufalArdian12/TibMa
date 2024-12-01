@@ -1,12 +1,53 @@
 <?php
-class AdminModel extends UserModels {
-    public function __construct($username, $password, $email, $first_name, $last_name) {
-        parent::__construct($username, $password, $email, $first_name, $last_name);
-        $this->role = 'admin';
+class AdminModel implements DBModel
+{
+    protected int $idAdmin;
+    protected string $title;
+    protected string $idUser;
+
+    public function __construct($idAdmin, $title, $idUser)
+    {
+        $this->idAdmin = $idAdmin;
+        $this->title = $title;
+        $this->idUser = $idUser;
     }
 
-    // Admin specific methods
-    public function canManageUsers() {
-        return true;
+    public static function fromStdClass($stdClass): AdminModel
+    {
+        return new AdminModel(
+            $stdClass->id_admin,
+            $stdClass->title,
+            $stdClass->id_user
+        );
+    }
+
+    public function getIdAdmin()
+    {
+        return $this->idAdmin;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    public function setIdAdmin($idAdmin)
+    {
+        $this->idAdmin = $idAdmin;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
     }
 }

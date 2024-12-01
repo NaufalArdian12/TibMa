@@ -2,57 +2,33 @@
 
 class App
 {
-    protected $controller = 'Home';
-    protected $method = 'index';
-    protected $params = [];
-    protected $routes = [];
+	protected static $registry = [];
 
-    public function __construct()
-    {
-        // Muat rute dari config/routes.php
-        $this->routes = require_once __DIR__ . '/../config/routes.php';
+	/**
+	 * Inject new value into the DI Container.
+	 *
+	 * @param  string $key   
+	 * @param  mixed $value 
+	 * @return null
+	 */
+	public static function bind(string $key, $value)
+	{
+		self::$registry[$key] = $value;
+	}
 
-        // Ambil URL yang diminta
-        $url = $this->parseURL();
+	/**
+	 * Get an item by its key from the DI Container.
+	 *
+	 * @param  string $key 
+	 * @return null
+	 * @throws Exception if the service name that was passed into the method is not found.
+	 */
+	public static function get(string $key)
+	{
+		if (!array_key_exists($key, static::$registry)) {
+			throw new Exception ("No {$key} is bound in the app.");
+		}
 
-        // Cek apakah URL sesuai dengan rute custom
-        if ($url && array_key_exists($url[0], $this->routes)) {
-          $route = $this->routes[$url[0]];
-          $this->controller = $route['controller'];
-          $this->method = $route['method'];
-          unset($url[0]);
-        } elseif ($url && file_exists(__DIR__ . '/../controllers/' . $url[0] . '.php')) {
-          // Jika tidak ada rute custom, cek file controller
-          $this->controller = $url[0];
-          unset($url[0]);
-        }
-
-        // Include file controller
-        require_once __DIR__ . '/../controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
-
-        // Cek metode di URL jika tidak menggunakan rute custom
-        if (!$this->method && isset($url[1]) && method_exists($this->controller, $url[1])) {
-            $this->method = $url[1];
-            unset($url[1]);
-        }
-
-        // Params
-        if (!empty($url)) {
-            $this->params = array_values($url);
-        }
-
-        // Jalankan controller & method, serta kirimkan params jika ada
-        call_user_func_array([$this->controller, $this->method], $this->params);
-    }
-
-    public function parseURL()
-    {
-        if (isset($_GET['url'])) {
-            $url = rtrim($_GET['url'], '/');
-            $url = filter_var($url, FILTER_SANITIZE_URL);
-            $url = explode('/', $url);
-            return $url;
-        }
-    }
+		return self::$registry[$key];
+	}
 }

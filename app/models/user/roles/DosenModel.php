@@ -1,36 +1,53 @@
 <?php
-class DosenModel extends userModels {
-    private $nip;
-    private $bidang_keahlian;
-    private $jabatan;
+class DosenModel implements DBModel
+{
+    protected string $nidn;
+    protected string $title;
+    protected string $idUser;
 
-    public function __construct($username, $password, $email, $first_name, $last_name, $nip, $bidang_keahlian, $jabatan) {
-        parent::__construct($username, $password, $email, $first_name, $last_name);
-        $this->role = 'dosen';
-        $this->nip = $nip;
-        $this->bidang_keahlian = $bidang_keahlian;
-        $this->jabatan = $jabatan;
+    public function __construct($nidn, $title, $idUser)
+    {
+        $this->nidn = $nidn;
+        $this->title = $title;
+        $this->idUser = $idUser;
     }
 
-    // Getter methods
-    public function getNip() {
-        return $this->nip;
+    public static function fromStdClass($stdClass): DosenModel
+    {
+        return new DosenModel(
+            $stdClass->nidn,
+            $stdClass->title,
+            $stdClass->id_user
+        );
     }
 
-    public function getBidangKeahlian() {
-        return $this->bidang_keahlian;
+    public function getNidn()
+    {
+        return $this->nidn;
     }
 
-    public function getJabatan() {
-        return $this->jabatan;
+    public function getTitle()
+    {
+        return $this->title;
     }
 
-    // Setter methods
-    public function setBidangKeahlian($bidang_keahlian) {
-        $this->bidang_keahlian = $bidang_keahlian;
+    public function getIdUser()
+    {
+        return $this->idUser;
     }
 
-    public function setJabatan($jabatan) {
-        $this->jabatan = $jabatan;
+    public function setNidn($nidn)
+    {
+        $this->nidn = $nidn;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
     }
 }

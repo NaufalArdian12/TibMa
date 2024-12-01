@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= BASE_URL;?>/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= BASE_URL;?>/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=  App::get("root_uri") ?>/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=  App::get("root_uri") ?>/img/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>Halaman <?= $data['title']; ?></title>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= BASE_URL;?>/img/favicon.ico">
+    <link rel="shortcut icon" href="<?=  App::get("root_uri") ?>/img/favicon.ico">
 
     <!-- Jsvectormap plugin css -->
-    <link href="<?= BASE_URL;?>/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=  App::get("root_uri") ?>/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Icons css  (Mandatory in All Pages) -->
-    <link href="<?= BASE_URL;?>/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=  App::get("root_uri") ?>/css/icons.min.css" rel="stylesheet" type="text/css">
 
     <!-- App css  (Mandatory in All Pages) -->
-    <link href="<?= BASE_URL;?>/css/app.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=  App::get("root_uri") ?>/css/app.min.css" rel="stylesheet" type="text/css">
     <!-- favicon link -->
-    <link rel="shortcut icon" href="<?= BASE_URL;?>/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=  App::get("root_uri") ?>/img/favicon.ico" type="image/x-icon">
     <!-- google font link -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- tailwind css cdn -->
