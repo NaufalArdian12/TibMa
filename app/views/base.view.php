@@ -10,7 +10,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?= App::get("public_uri") ?>/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?= App::get("public_uri") ?>/img/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <title>Halaman <?= $data['title']; ?></title>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <title><?= $data['title']; ?></title>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="<?= App::get("public_uri") ?>/img/favicon.ico">
