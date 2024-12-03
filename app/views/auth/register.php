@@ -11,7 +11,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= BASE_URL; ?>/register" method="POST" id="registerForm" class="space-y-4">
+        <form action="<?= App::get("public_uri"); ?>/register" method="POST" id="registerForm" class="space-y-4">
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                 <input type="text" id="username" name="username" required minlength="3"
@@ -62,7 +62,7 @@
         </form>
 
         <div class="mt-4 text-center">
-            <p class="text-sm text-gray-600">Already have an account? <a href="<?= BASE_URL; ?>/login" class="text-blue-600 hover:underline">Login here</a></p>
+            <p class="text-sm text-gray-600">Already have an account? <a href="<?= App::get("public_uri"); ?>/login" class="text-blue-600 hover:underline">Login here</a></p>
         </div>
     </div>
 </div>
