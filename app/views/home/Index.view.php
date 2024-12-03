@@ -88,7 +88,7 @@
             </div>
             <div class="md:w-7/12">
                 <div class="mb-16 flex flex-col">
-                    <p class="mb-3 text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint explicabo perferendis voluptatibus sunt enim officiis.</p>
+                    <p class="mb-3 text-slate-500"> halo halo</p>
 
                     <p class="mb-10 text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint laudantium, cum, quaerat nulla possimus magni odio ullam ratione vitae id fuga aliquam sed molestiae? Voluptas.</p>
 
