@@ -12,7 +12,7 @@ class Connection
 				$config['password'],
 				$config['options']
 			);
-		} catch
+		} catch	
 		(PDOException $e) {
 			// dd($e);
 			echo $e->getMessage();
