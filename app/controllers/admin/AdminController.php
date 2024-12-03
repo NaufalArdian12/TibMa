@@ -35,7 +35,7 @@ class AdminController
 			// 'reports' => $reports
 		];
 
-		return Helper::view('admin/dashboard', $data);
+		return Helper::view('admin/dashboard', ['title' => 'Admin Dashboard']);
 	}
 	/**
 	 * [contact description]
