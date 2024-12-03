@@ -10,8 +10,6 @@ class GlobalController
 	 */
 	public function landing()
 	{
-		
-
 		return Helper::view('home/index', ['title' => 'Tibma']);
 	}
 	
