@@ -131,7 +131,7 @@
                     <span class="font-medium text-purple-500">About Us</span>
                     <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Creative Marketing agency</h1>
                 </div>
-                <p class="text-slate-500 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere corporis delectus commodi suscipit dolores? Laudantium natus consectetur maiores architecto iste?</p>
+                <p class="text-slate-500 mb-6">Here is About</p>
                 <ul>
                     <li class="mb-6 flex items-center">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-purple-500 text-white">
