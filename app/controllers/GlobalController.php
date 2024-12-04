@@ -51,3 +51,4 @@ class GlobalController
 		return Helper::view('contact');
 	}
 }
+//test
