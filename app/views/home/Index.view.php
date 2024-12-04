@@ -7,7 +7,7 @@
             <!-- logo -->
             <div class="w-[15rem] max-w-full">
                 <a href="">
-                    <img src="<?=  App::get("public_uri") ?>/img/tibma logo.png" alt="logo" class="w-full">
+                    <img src="<?= App::get("public_uri") ?>/img/tibma logo.png" alt="logo" class="w-full">
                 </a>
             </div>
 
@@ -29,7 +29,7 @@
             </div>
             <!-- menu btn -->
             <div class="flex">
-                <a href="<?=  App::get("root_uri") ?>/auth/login" class="mr-10 hidden rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 duration-200 hover:bg-purple-600 sm:block lg:mr-0">Login</a>
+                <a href="<?= App::get("root_uri") ?>/auth/login" class="mr-10 hidden rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 duration-200 hover:bg-purple-600 sm:block lg:mr-0">Login</a>
 
                 <button @click="navbarOpen = !navbarOpen" :class="navbarOpen && 'navbarTogglerActive'" id="navbarToggler" class="block lg:hidden">
                     <ion-icon name="menu-outline" class="text-4xl text-purple-500"></ion-icon>
@@ -51,7 +51,9 @@
                 <p class="text-slate-500 mb-8 max-w-[480px] text-base">Rules are a shared commitment to create a campus that is conducive to all. With TibMa, students can access campus rules anytime and anywhere, strengthening a culture of discipline that moves everyone forward.
                 </p>
 
-                <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 sm:w-auto">Login</button>
+                <a href="<?= App::get("root_uri") ?>/auth/login" class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 sm:w-auto">
+                    Login
+                </a>
 
                 <button class="mt-4 box-border w-full rounded-md border border-purple-500/20 px-8 py-2.5 font-semibold text-purple-500 shadow-md shadow-purple-500/10 duration-200 sm:ml-4 sm:mt-0 sm:w-auto hover:bg-purple-500 hover:text-white">Rules</button>
             </div>
@@ -61,7 +63,7 @@
             <div class="w-full px-4 lg:w-6/12 delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0" data-taos-offset="400">
                 <div class="lg:ml-auto lg:text-right">
                     <div class="relative z-10 inline-block pt-11 lg:pt-0">
-                        <img src="<?=  App::get("public_uri") ?>/img/hero.png" alt="hero section img" class="max-w-full lg:ml-auto">
+                        <img src="<?= App::get("public_uri") ?>/img/hero.png" alt="hero section img" class="max-w-full lg:ml-auto">
                     </div>
                 </div>
             </div>
@@ -77,43 +79,43 @@
 <section class="pb-16">
     <div class="mx-auto max-w-7xl px-8 md:px-6 delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300"">
         <!-- heading text -->
-        <div class="mb-5 sm:mb-10">
-            <span class="font-medium text-purple-500">Our Features</span>
-            <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Provide Our Features</h1>
+        <div class=" mb-5 sm:mb-10">
+        <span class="font-medium text-purple-500">Our Features</span>
+        <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Provide Our Features</h1>
+    </div>
+    <!-- features img -->
+    <div class="md:flex md:justify-between md:gap-6 xl:gap-10">
+        <div class="mb-5 max-h-[600px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
+            <img src="<?= App::get("public_uri") ?>/img/features/features.png" alt="features img" class="h-full scale-125 sm:w-full sm:object-cover">
         </div>
-        <!-- features img -->
-        <div class="md:flex md:justify-between md:gap-6 xl:gap-10">
-            <div class="mb-5 max-h-[600px] overflow-hidden rounded-lg md:mb-0 md:w-5/12">
-                <img src="<?=  App::get("public_uri") ?>/img/features/features.png" alt="features img" class="h-full scale-125 sm:w-full sm:object-cover">
+        <div class="md:w-7/12">
+            <div class="mb-16 flex flex-col">
+                <p class="mb-3 text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint explicabo perferendis voluptatibus sunt enim officiis.</p>
+
+                <p class="mb-10 text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint laudantium, cum, quaerat nulla possimus magni odio ullam ratione vitae id fuga aliquam sed molestiae? Voluptas.</p>
+
+                <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 md:w-max">Get Started</button>
             </div>
-            <div class="md:w-7/12">
-                <div class="mb-16 flex flex-col">
-                    <p class="mb-3 text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint explicabo perferendis voluptatibus sunt enim officiis.</p>
 
-                    <p class="mb-10 text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint laudantium, cum, quaerat nulla possimus magni odio ullam ratione vitae id fuga aliquam sed molestiae? Voluptas.</p>
-
-                    <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 md:w-max">Get Started</button>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                    <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (1).png" alt="">
+                    <h3 class="text-lg font-bold text-slate-600">Web Design</h3>
+                    <a href="#" class="text-sm text-purple-500">Learn more</a>
                 </div>
-
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <img class="mb-3 w-16" src="<?=  App::get("public_uri") ?>/img/features/icon (1).png" alt="">
-                        <h3 class="text-lg font-bold text-slate-600">Web Design</h3>
-                        <a href="#" class="text-sm text-purple-500">Learn more</a>
-                    </div>
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <img class="mb-3 w-16" src="<?=  App::get("public_uri") ?>/img/features/icon (2).png" alt="">
-                        <h3 class="text-lg font-bold text-slate-600">Automation</h3>
-                        <a href="#" class="text-sm text-purple-500">Learn more</a>
-                    </div>
-                    <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
-                        <img class="mb-3 w-16" src="<?=  App::get("public_uri") ?>/img/features/icon (3).png" alt="">
-                        <h3 class="text-lg font-bold text-slate-600">Infographics</h3>
-                        <a href="#" class="text-sm text-purple-500">Learn more</a>
-                    </div>
+                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                    <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (2).png" alt="">
+                    <h3 class="text-lg font-bold text-slate-600">Automation</h3>
+                    <a href="#" class="text-sm text-purple-500">Learn more</a>
+                </div>
+                <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
+                    <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (3).png" alt="">
+                    <h3 class="text-lg font-bold text-slate-600">Infographics</h3>
+                    <a href="#" class="text-sm text-purple-500">Learn more</a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
@@ -157,7 +159,7 @@
 
             <!-- about img -->
             <div class="mt-8 flex justify-center md:mt-0 md:w-5/12">
-                <img src="<?=  App::get("public_uri") ?>/img/about1.png" alt="about img" class="max-h-[500px] md:max-h-max">
+                <img src="<?= App::get("public_uri") ?>/img/about1.png" alt="about img" class="max-h-[500px] md:max-h-max">
             </div>
 
         </div>
@@ -228,7 +230,7 @@
         <!-- footer top -->
         <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
             <div class="md:max-w-md lg:col-span-2">
-                <img src="<?=  App::get("public_uri") ?>/img/tibma logo.png" alt="footer logo" class="w-36">
+                <img src="<?= App::get("public_uri") ?>/img/tibma logo.png" alt="footer logo" class="w-36">
                 <div class="mt-4 lg:max-w-sm">
                     <p class="text-sm text-slate-500">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                     <p class="text-sm text-slate-500 mt-2">Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
