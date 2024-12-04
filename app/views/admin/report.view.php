@@ -25,7 +25,7 @@
 
 
                 <li class="menu-item">
-                    <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5"
+                    <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 <?php echo (strpos($_SERVER['REQUEST_URI'], '/report') !== false) ? 'active' : ''; ?>"
                         href="<?php echo App::get('root_uri'); ?>/admin/report">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
@@ -130,20 +130,22 @@
     <div class="page-content">
 
         <!-- Topbar Start -->
-        <header class="app-header sticky top-0 z-50 h-topbar flex items-center px-5 bg-white border-b border-default-200">
+        <header class="app-header sticky top-0 z-50 h-topbar flex pl-24 px-5 bg-white border-b border-default-200">
+            <!-- Sidenav Menu Toggle Button -->
+            <button id="button-toggle-menu" class="text-default-500 hover:text-default-600 px-5 rounded-full cursor-pointer z-0"
+                data-hs-overlay="#app-menu" aria-label="Toggle navigation">
+                <i class="i-tabler-menu-2 text-2xl"></i>
+            </button>
             <div class="container flex items-center">
                 <!-- Topbar Brand Logo -->
                 <a href="index.html" class="md:hidden flex">
                     <img src="<?= App::get("public_uri"); ?>/img/logo-sm.png" class="h-6" alt="Small logo">
                 </a>
 
-                <!-- Sidenav Menu Toggle Button -->
-                <button id="button-toggle-menu" class="text-default-500 hover:text-default-600 p-2 rounded-full cursor-pointer"
-                    data-hs-overlay="#app-menu" aria-label="Toggle navigation">
-                    <i class="i-tabler-menu-2 text-2xl"></i>
-                </button>
+
 
                 <!-- Topbar Search -->
+            
                 <div class="md:flex hidden items-center relative">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <i class="i-ph-magnifying-glass text-base"></i>
@@ -210,118 +212,50 @@
         <!-- Topbar End -->
 
         <!-- Main Content -->
-        <main class="flex-1 pl-64 h-screen overflow-auto">
-            <div class="p-4">
-                <h1 class="text-3xl font-semibold">Reports</h1>
-                <div class="flex justify-end mt-4 mb-4">
-                    <div class="dropdown">
-                        <button class="btn bg-gray-700 text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-funnel"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?= App::get('root_uri') . '/admin/report' ?>">All</a></li>
-                            <?php foreach (ReportModel::getStatusChoices() as $status) : ?>
-                                <li><a class="dropdown-item" href="<?= App::get('root_uri') . '/admin/report?status=' . $status ?>"><?= $status ?></a></li>
-                            <?php endforeach; ?>
-                            <li><a class="dropdown-item" href="<?= App::get('root_uri') . '/admin/report?managed_by_me=1' ?>">Managed By Me</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <div class="relative overflow-x-auto">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Product name
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Color
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Category
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Price
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    Apple MacBook Pro 17"
-                                </th>
-                                <td class="px-6 py-4">
-                                    Silver
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop
-                                </td>
-                                <td class="px-6 py-4">
-                                    $2999
+        <main class="flex-1 pl-24 h-screen overflow-auto">
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Title
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Subject
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Reported
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Create date
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Confirmed by
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Details
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($reports as $report) : ?>
+                            <tr class="bg-white border-b">
+                                <td class="px-4 py-2"><?= $report->getTitle() ?></td>
+                                <td class="px-4 py-2"><?= $report->getMahasiswaUsername() ?></td>
+                                <td class="px-4 py-2"><?= $report->getDosenUsername() ?></td>
+                                <td class="px-4 py-2"><?= $report->getStatus() ?></td>
+                                <td class="px-4 py-2"><?= $report->getReportDate() ?></td>
+                                <td class="px-4 py-2"><?= $report->getAdminUsername() ?? "No one yet" ?></td>
+                                <td class="px-4 py-2">
+                                    <a href="<?= App::get('root_uri') . '/report/detail/' . $report->getIdReport() ?>" class="text-blue-600 hover:underline">Show Details</a>
                                 </td>
                             </tr>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    Microsoft Surface Pro
-                                </th>
-                                <td class="px-6 py-4">
-                                    White
-                                </td>
-                                <td class="px-6 py-4">
-                                    Laptop PC
-                                </td>
-                                <td class="px-6 py-4">
-                                    $1999
-                                </td>
-                            </tr>
-                            <tr class="bg-white dark:bg-gray-800">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    Magic Mouse 2
-                                </th>
-                                <td class="px-6 py-4">
-                                    Black
-                                </td>
-                                <td class="px-6 py-4">
-                                    Accessories
-                                </td>
-                                <td class="px-6 py-4">
-                                    $99
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="overflow-x-auto">
-                    <table class="table-auto w-full">
-                        <thead>
-                            <tr>
-                                <th class="px-4 py-2 text-left">Title</th>
-                                <th class="px-4 py-2 text-left">Subject</th>
-                                <th class="px-4 py-2 text-left">Reported By</th>
-                                <th class="px-4 py-2 text-left">Status</th>
-                                <th class="px-4 py-2 text-left">Create Date</th>
-                                <th class="px-4 py-2 text-left">Confirmed By</th>
-                                <th class="px-4 py-2 text-left">Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($reports as $report) : ?>
-                                <tr>
-                                    <td class="px-4 py-2"><?= $report->getTitle() ?></td>
-                                    <td class="px-4 py-2"><?= $report->getMahasiswaUsername() ?></td>
-                                    <td class="px-4 py-2"><?= $report->getDosenUsername() ?></td>
-                                    <td class="px-4 py-2"><?= $report->getStatus() ?></td>
-                                    <td class="px-4 py-2"><?= $report->getReportDate() ?></td>
-                                    <td class="px-4 py-2"><?= $report->getAdminUsername() ?? "No one yet" ?></td>
-                                    <td class="px-4 py-2"><a href="<?= App::get('root_uri') . '/report/detail/' . $report->getIdReport() ?>" class="text-blue-600 hover:underline">Show Details</a></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
