@@ -179,6 +179,8 @@
             <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti sit dolor numquam non. Et.</p>
         </div>
 
+        //service main
+
         <!-- box wrapper -->
         <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8">
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
