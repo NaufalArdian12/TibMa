@@ -3,7 +3,7 @@
         'name' => 'naufal/tibma',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3f094e5ec06440fed0f16da42ade6e800a15b7ff',
+        'reference' => '61aa1cb27b7239ccc137b7dec55ff99b81390f54',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -94,7 +94,7 @@
         'naufal/tibma' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3f094e5ec06440fed0f16da42ade6e800a15b7ff',
+            'reference' => '61aa1cb27b7239ccc137b7dec55ff99b81390f54',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

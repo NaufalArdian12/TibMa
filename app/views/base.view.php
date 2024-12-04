@@ -83,7 +83,7 @@
                 // Menambahkan kelas 'text-yellow-500' pada tautan yang diklik
                 this.classList.add('text-purple-500'); // Warna aktif
             });
-        });
+        });// test saja
     </script>
 
 </body>
