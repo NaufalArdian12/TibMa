@@ -96,6 +96,12 @@
 
                 <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 md:w-max">Get Started</button>
             </div>
+<<<<<<< HEAD
+=======
+            <div class="md:w-7/12">
+                <div class="mb-16 flex flex-col">
+                    <p class="mb-3 text-slate-500"> halo halo</p>
+>>>>>>> 0cb86c62a8a8cfc0d0b688703e6c2c76e7db478d
 
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
@@ -133,7 +139,7 @@
                     <span class="font-medium text-purple-500">About Us</span>
                     <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Creative Marketing agency</h1>
                 </div>
-                <p class="text-slate-500 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere corporis delectus commodi suscipit dolores? Laudantium natus consectetur maiores architecto iste?</p>
+                <p class="text-slate-500 mb-6">Here is About</p>
                 <ul>
                     <li class="mb-6 flex items-center">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-purple-500 text-white">
