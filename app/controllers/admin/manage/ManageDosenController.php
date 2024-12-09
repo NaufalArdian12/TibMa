@@ -38,7 +38,7 @@ class ManageDosenController {
 			'nextPage' => $nextPage
 		];
 
-		return Helper::view('admin/manage/dosen', $data);
+		return Helper::view('admin/manage/dosen', array_merge($data, ['title' => 'Manage Dosen']));
 	}
     public function addNewDosen()
 	{
