@@ -29,7 +29,7 @@ class ManageViolationLevelController
 			'nextPage' => $nextPage
 		];
 
-		return Helper::view('admin/manage/violation_level', $data);
+		return Helper::view('admin/manage/violation_level', array_merge($data, ['title' => 'Manage Violation Level']));;
 	}
 
 	public function addViolationLevel()

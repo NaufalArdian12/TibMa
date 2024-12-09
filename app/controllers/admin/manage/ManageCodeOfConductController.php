@@ -55,7 +55,7 @@ class ManageCodeOfConductController {
 			'countPerLevel' => $countPerLevel
 		];
 
-		return Helper::view('admin/manage/code_of_conduct', $data);
+		return Helper::view('admin/manage/code_of_conduct', array_merge($data, ['title' => 'Manage Code of Conduct']));;
 	}
 
     public function addCodeOfConduct() {
