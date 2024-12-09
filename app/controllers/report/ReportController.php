@@ -23,7 +23,7 @@ class ReportController
 			'updateReportDetailEndpoint' => App::get('root_uri') . "/report/detail/$idReport/update",
 		];
 
-		return Helper::view('report/report_detail', $data);
+		return Helper::view('report/report_detail', ['title' => 'Report']);
 	}
 
 	public function addNewReportComment($idReport)
