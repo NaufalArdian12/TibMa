@@ -86,6 +86,25 @@
         });
     </script>
 
+    <!-- Plugin Js (Mandatory in All Pages) -->
+    <script src="<?= App::get("public_uri"); ?>/libs/jquery/jquery.min.js"></script>
+    <script src="<?= App::get("public_uri"); ?>/libs/preline/preline.js"></script>
+    <script src="<?= App::get("public_uri"); ?>/libs/simplebar/simplebar.min.js"></script>
+    <script src="<?= App::get("public_uri"); ?>/libs/iconify-icon/iconify-icon.min.js"></script>
+    <script src="<?= App::get("public_uri"); ?>/libs/node-waves/waves.min.js"></script>
+
+    <!-- App Js (Mandatory in All Pages) -->
+    <script src="<?= App::get("public_uri"); ?>/js/app.js"></script>
+
+    <!-- Apexcharts js -->
+    <script src="<?= App::get("public_uri"); ?>/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Vector Map Js -->
+    <script src="<?= App::get("public_uri"); ?>/libs/jsvectormap/js/jsvectormap.min.js"></script>
+
+    <!-- Dashboard Project Page js -->
+    <script src="<?= App::get("public_uri"); ?>/js/pages/dashboard.js"></script>
+
 </body>
 
 </html>

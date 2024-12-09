@@ -74,7 +74,7 @@ class AdminController
 			'reports' => $reports
 		];
 
-		return Helper::view('admin/report', $data);
+		return Helper::view('admin/report', array_merge($data, ['title' => 'Admin Report']));
 	}
 
 	/**
@@ -106,7 +106,7 @@ class AdminController
 		if (count($newReportComments) > 0)
 			$reportCommentService->markReportCommentAsRead($newReportComments);
 
-		return Helper::view('admin/notification', $data);
+			return Helper::view('admin/notification', array_merge($data, ['title' => 'Admin notification']));
 	}
 
 	/**
