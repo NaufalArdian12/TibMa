@@ -38,7 +38,7 @@ class ManageMahasiswaController {
 			'nextPage' => $nextPage
 		];
 
-		return Helper::view('admin/manage/mahasiswa', $data);
+		return Helper::view('admin/manage/mahasiswa', array_merge($data, ['title' => 'Manage Mahasiswa']));
 	}
     public function addNewMahasiswa()
 	{
