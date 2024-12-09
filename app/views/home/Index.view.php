@@ -90,9 +90,9 @@
         </div>
         <div class="md:w-7/12">
             <div class="mb-16 flex flex-col">
-                <p class="mb-3 text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint explicabo perferendis voluptatibus sunt enim officiis.</p>
+                <p class="mb-3 text-slate-500">In This Website We Provide 3 Role That contains 3 main roles, namely Admin, Lecturer, Student.</p>
 
-                <p class="mb-10 text-slate-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint laudantium, cum, quaerat nulla possimus magni odio ullam ratione vitae id fuga aliquam sed molestiae? Voluptas.</p>
+                <p class="mb-10 text-slate-500">Each role has its own unique features, for students can only see their violations, lecturers can report violations made by students, while admins are able to manage, such as adding users, validating violations, and other CRUD functions..</p>
 
                 <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 md:w-max">Get Started</button>
             </div>
@@ -100,17 +100,17 @@
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
                     <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (1).png" alt="">
-                    <h3 class="text-lg font-bold text-slate-600">Web Design</h3>
+                    <h3 class="text-lg font-bold text-slate-600">Code of Conduct System</h3>
                     <a href="#" class="text-sm text-purple-500">Learn more</a>
                 </div>
                 <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
                     <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (2).png" alt="">
-                    <h3 class="text-lg font-bold text-slate-600">Automation</h3>
+                    <h3 class="text-lg font-bold text-slate-600">Setting</h3>
                     <a href="#" class="text-sm text-purple-500">Learn more</a>
                 </div>
                 <div class="flex flex-col items-center justify-center rounded-xl bg-white px-4 py-8 shadow-lg">
                     <img class="mb-3 w-16" src="<?= App::get("public_uri") ?>/img/features/icon (3).png" alt="">
-                    <h3 class="text-lg font-bold text-slate-600">Infographics</h3>
+                    <h3 class="text-lg font-bold text-slate-600">Chart Graphics</h3>
                     <a href="#" class="text-sm text-purple-500">Learn more</a>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 <!-- heading text -->
                 <div class="mb-5 sm:mb-10">
                     <span class="font-medium text-purple-500">About Us</span>
-                    <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Creative Marketing agency</h1>
+                    <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Student Code of Conduct Information Systemy</h1>
                 </div>
                 <p class="text-slate-500 mb-6">Here is About</p>
                 <ul>
@@ -139,19 +139,19 @@
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-purple-500 text-white">
                             <ion-icon name="briefcase-outline"></ion-icon>
                         </div>
-                        <p class="ml-4 max-w-md font-medium text-slate-600">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">Distributed By Student Of malang state polytechnic.</p>
                     </li>
                     <li class="mb-6 flex items-center">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-purple-500 text-white">
                             <ion-icon name="cube-outline"></ion-icon>
                         </div>
-                        <p class="ml-4 max-w-md font-medium text-slate-600">Omnis unde nam quia harum voluptatum itaque iste nostrum amet vero.</p>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">General Feature.</p>
                     </li>
                     <li class="mb-6 flex items-center">
                         <div class="flex h-[35px] w-[35px] min-w-[35px] items-center justify-center rounded-full bg-purple-500 text-white">
                             <ion-icon name="mail-unread-outline"></ion-icon>
                         </div>
-                        <p class="ml-4 max-w-md font-medium text-slate-600">Id quos et quidem perspiciatis similique! Rerum, natus temporibus.</p>
+                        <p class="ml-4 max-w-md font-medium text-slate-600">Contact Us About Suggestion And Feedback.</p>
                     </li>
                 </ul>
                 <button class="w-full rounded-md bg-purple-500 px-8 py-2.5 font-semibold text-white shadow-md shadow-purple-500/20 hover:bg-purple-600 duration-200 md:w-max">Get Started</button>
@@ -176,7 +176,7 @@
         <div class="mb-10 text-center">
             <span class="font-medium text-purple-500">Our Services</span>
             <h1 class="text-2xl font-bold text-slate-700 sm:text-3xl">Provide Awesome Services</h1>
-            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur deleniti sit dolor numquam non. Et.</p>
+            <p class="mt-2">Here are some of our pretty cool features.</p>
         </div>
 
         //service main
@@ -185,38 +185,38 @@
         <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-8">
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="bar-chart-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
-                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Crafted for Startups</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">offense data that can be displayed with charts</h4>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">On This Feature,Violations Will be Displayed With Chart</p>
             </div>
 
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="extension-puzzle-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
                 <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Fully Customizable</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">some roles can customize their profile freely</p>
             </div>
 
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="speedometer-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
                 <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Speed Optimized</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">we make the website accessible as fast as possible</p>
             </div>
 
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="diamond-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
                 <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">High-quality Design</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">With Comfortable Design From Bootstrap</p>
             </div>
 
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="file-tray-full-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
                 <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">All Essential Sections</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">all parts have their own role”, and all are important.!</p>
             </div>
 
             <div class="group flex cursor-pointer flex-col items-center rounded-xl border border-purple-500/10 bg-white px-5 py-8 shadow-lg shadow-purple-300/10 duration-200 hover:bg-purple-500">
                 <ion-icon name="cloud-download-outline" class="text-[55px] text-purple-500 duration-200 group-hover:text-white"></ion-icon>
                 <h4 class="mt-3 mb-1 text-[17px] font-semibold text-slate-600 duration-200 group-hover:text-white">Regular Updates</h4>
-                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe accusamus nihil veritatis ad. Odit, veritatis!</p>
+                <p class="text-center text-sm text-slate-500 duration-200 group-hover:text-purple-200">We Still Develop And Update,Feel Free To Give Us Feedback!</p>
             </div>
         </div>
     </div>
@@ -234,8 +234,8 @@
             <div class="md:max-w-md lg:col-span-2">
                 <img src="<?= App::get("public_uri") ?>/img/tibma logo.png" alt="footer logo" class="w-36">
                 <div class="mt-4 lg:max-w-sm">
-                    <p class="text-sm text-slate-500">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    <p class="text-sm text-slate-500 mt-2">Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <p class="text-sm text-slate-500">This website is only intended to fulfill the PBL (Project Base Learning) final assignment.</p>
+                    <p class="text-sm text-slate-500 mt-2">So, it is only intended to fulfill the final project, not official.</p>
                 </div>
             </div>
 
@@ -244,9 +244,9 @@
                     <!-- head -->
                     <p class="font-semibold text-slate-700">Category</p>
                     <ul class="mt-2 space-y-2">
-                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">News</a></li>
-                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">World</a></li>
-                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Games</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">State Polytechnic Of Malang</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Code Of Conduct</a></li>
+                        <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">Violations</a></li>
                         <li><a href="#" class="text-slate-500 transition-colors duration-300 hover:text-slate-700">References</a></li>
                     </ul>
                 </div>
@@ -291,7 +291,7 @@
 
         <!-- footer bottom -->
         <div class="flex flex-col justify-between border-t py-8 sm:flex-row">
-            <p class="text-sm text-slate-500">© Copyright 2022 <a href="#" class="text-slate-700 hover:text-purple-500"> ZED.zahidul</a> All rights reserved.</p>
+            <p class="text-sm text-slate-500">© Copyright 2024 <a href="#" class="text-slate-700 hover:text-purple-500"> TIBMA.PBL</a> All rights reserved.</p>
             <div class="mt-4 flex items-center space-x-4 sm:mt-0">
                 <a href="#">
                     <ion-icon name="logo-facebook" class="text-2xl text-slate-500 hover:text-purple-500 duration-300"></ion-icon>
