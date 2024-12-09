@@ -37,7 +37,7 @@ class ManageAdminController {
 			'nextPage' => $nextPage
 		];
 
-		return Helper::view('admin/manage/admin', $data);
+		return Helper::view('admin/manage/admin', array_merge($data, ['title' => 'Manage Admin']));;
 	}
     public function addNewAdmin()
 	{
