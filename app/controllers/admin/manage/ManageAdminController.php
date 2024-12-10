@@ -43,11 +43,11 @@ class ManageAdminController {
 	{
 		if (
 			isset($_POST['username']) && $_POST['username'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
 			isset($_POST['title']) && $_POST['title'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != '' &&
 			isset($_POST['password']) && $_POST['password'] != ''
 		) {
@@ -56,11 +56,11 @@ class ManageAdminController {
 
 			// get input
 			$username = $_POST['username'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$email = $_POST['email'];
 			$address = $_POST['address'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$role = 'admin';
 
 			$isUserExists = $userService->getSingleUser(['username' => $username]);
@@ -92,11 +92,11 @@ class ManageAdminController {
 		if (
 			isset($_POST['id_user']) && $_POST['id_user'] != '' &&
 			isset($_POST['username']) && $_POST['username'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
 			isset($_POST['title']) && $_POST['title'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != ''
 		) {
 			$userService = UserService::getInstance();
@@ -105,11 +105,11 @@ class ManageAdminController {
 			// get input
 			$idUser = $_POST['id_user'];
 			$username = $_POST['username'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$email = $_POST['email'];
 			$address = $_POST['address'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$role = 'admin';
 
 			$tempUser = $userService->getSingleUser(['username' => $username]);
