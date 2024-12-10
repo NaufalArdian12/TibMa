@@ -35,7 +35,7 @@ class DosenController
 			'reports' => $reports
 		];
 
-		return Helper::view('dosen/dashboard', $data);
+		return Helper::view('dosen/dashboard', ['title' => 'Dosen Dashboard']);
 	}
 
 	public function notificationPage()
@@ -62,7 +62,7 @@ class DosenController
 		if (count($newReportComments) > 0)
 			$reportCommentService->markReportCommentAsRead($newReportComments);
 
-		return Helper::view('dosen/notification', $data);
+			return Helper::view('dosen/notification', ['title' => 'Dosen Notification']);
 	}
 
 	public function profilePage()
@@ -227,7 +227,7 @@ class DosenController
 			'addNewReportEndpoint' => App::get('root_uri') . '/dosen/report/new'
 		];
 
-		return Helper::view('dosen/report', $data);
+		return Helper::view('dosen/report', ['title' => 'Dosen Report']);
 	}
 
 	public function addNewReport()

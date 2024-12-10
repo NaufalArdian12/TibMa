@@ -86,8 +86,8 @@
                 </a>
               </li>
               <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/code-of-counduct') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/code-of-counduct">
+                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/code-of-conduct') !== false) ? 'active' : ''; ?>"
+                  href="<?php echo App::get('root_uri'); ?>/admin/manage/code-of-conduct">
                   <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
                   Code of counduct
                 </a>
@@ -96,8 +96,8 @@
         </li>
 
         <li class="menu-item">
-          <a href="maps-vector.html"
-            class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5">
+          <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/log-activity') !== false) ? 'active' : ''; ?>"
+            href="<?php echo App::get('root_uri'); ?>/admin/log-activity">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />

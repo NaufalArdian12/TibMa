@@ -45,11 +45,11 @@ class ManageDosenController {
 		if (
 			isset($_POST['username']) && $_POST['username'] != '' &&
 			isset($_POST['nidn']) && $_POST['nidn'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['title']) && $_POST['title'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != '' &&
 			isset($_POST['password']) && $_POST['password'] != ''
 		) {
@@ -59,11 +59,11 @@ class ManageDosenController {
 			// get input
 			$username = $_POST['username'];
 			$nidn = $_POST['nidn'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$title = $_POST['title'];
 			$email = $_POST['email'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$address = $_POST['address'];
 			$role = 'dosen';
 
@@ -104,11 +104,11 @@ class ManageDosenController {
 			isset($_POST['id_user']) && $_POST['id_user'] != '' &&
 			isset($_POST['username']) && $_POST['username'] != '' &&
 			isset($_POST['nidn']) && $_POST['nidn'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
 			isset($_POST['title']) && $_POST['title'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != ''
 
 		) {
@@ -119,11 +119,11 @@ class ManageDosenController {
 			$idUser = $_POST['id_user'];
 			$username = $_POST['username'];
 			$nidn = $_POST['nidn'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$title = $_POST['title'];
 			$email = $_POST['email'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$address = $_POST['address'];
 			$role = 'dosen';
 

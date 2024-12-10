@@ -54,6 +54,10 @@ class UserModel implements DBModel
         return $this->idUser;
     }
 
+    public function getName(){
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
     public function getUsername()
     {
         return $this->username;
