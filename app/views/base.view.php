@@ -34,6 +34,9 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <!-- alpine js cdn -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
+    
     <!-- style css -->
     <style type="text/tailwindcss">
         *,:root,html{
@@ -104,6 +107,8 @@
 
     <!-- Dashboard Project Page js -->
     <script src="<?= App::get("public_uri"); ?>/js/pages/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
 
 </body>
 
