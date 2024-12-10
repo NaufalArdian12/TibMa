@@ -131,13 +131,13 @@ switch ($role) {
       </li>
 
       <li class="menu-item">
-        <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/log-activity') !== false) ? 'active' : ''; ?>"
+        <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/log-activity') !== false) ? 'active' : ''; ?>"
           href="<?php echo App::get('root_uri'); ?>/admin/log-activity">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
           </svg>
-          <span class="menu-text"> Log Activity </span>
+          <span class="menu-text">Log Activity</span>
         </a>
       </li>
     </ul>
