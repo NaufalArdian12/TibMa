@@ -5,8 +5,8 @@
  * @copyright Bigbang Inc.
  * @license license https://github.com/dev-haykay/MVCBoilerplate/blob/master/LICENSE MIT Licence
  */
-require 'vendor/autoload.php';
-require 'app/core/bootstrap.php';
+require 'vendor/autoload.php'; // autoload yang dihasilkan oleh Composer
+require 'app/core/bootstrap.php'; //auto ngeload Menyiapkan aplikasi
 
 /**
  * @var array $config
