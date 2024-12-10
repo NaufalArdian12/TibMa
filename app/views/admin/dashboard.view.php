@@ -197,7 +197,7 @@
       <!-- Page Title Start -->
       <div class="flex items-center md:justify-between flex-wrap gap-2 mb-6">
         <div class="md:flex hidden items-center gap-3 text-sm font-semibold">
-          <a href="#" class="text-sm font-medium text-default-700" aria-current="page">Dashboard</a>
+          <a href="#" class="text-sm font-medium text-default-700" aria-current="page">Admin Dashboard</a>
         </div>
       </div>
       <!-- Page Title End -->
@@ -207,8 +207,8 @@
           <div class="card-body">
             <div class="flex items- justify-between">
               <div>
-                <p class="text-base mb-1">Total Order</p>
-                <h4 class="text-xl">2415</h4>
+                <p class="text-base mb-1">Total Violation</p>
+                <h4 class="text-xl">69</h4>
               </div>
 
               <div
@@ -225,8 +225,8 @@
           <div class="card-body">
             <div class="flex items- justify-between">
               <div>
-                <p class="text-base mb-1">Total Sale</p>
-                <h4 class="text-xl">$78.5K</h4>
+                <p class="text-base mb-1">Total Report</p>
+                <h4 class="text-xl">68</h4>
               </div>
 
               <div
@@ -243,8 +243,8 @@
           <div class="card-body">
             <div class="flex items- justify-between">
               <div>
-                <p class="text-base mb-1">Total Visits</p>
-                <h4 class="text-xl">145.2K</h4>
+                <p class="text-base mb-1">Total Activity</p>
+                <h4 class="text-xl">99</h4>
               </div>
 
               <div class="rounded-lg flex justify-center items-center size-16 bg-info/10 text-info">
@@ -260,7 +260,7 @@
       <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-6 mb-6">
         <div class="card">
           <div class="card-header flex justify-between items-center">
-            <h4 class="card-title">Last Month Sales</h4>
+            <h4 class="card-title">Last Month Report</h4>
             <a class="btn btn-sm bg-light !text-sm text-gray-800 ">Export</a>
           </div>
 
@@ -282,7 +282,7 @@
 
               <div class="flex items-center gap-1">
                 <div class="size-3 rounded-full bg-info"></div>
-                <p class="text-sm text-default-700">Retail</p>
+                <p class="text-sm text-default-700">Add/Delete</p>
               </div>
             </div>
           </div>
