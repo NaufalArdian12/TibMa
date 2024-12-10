@@ -1,206 +1,303 @@
+<?php ?>
 <div class="wrapper">
 
   <!-- Start Sidebar -->
-  <aside id="app-menu"
-    class="hs-overlay fixed inset-y-0 start-0 z-60 hidden w-sidenav min-w-sidenav bg-white border-e border-default-200 overflow-y-auto -translate-x-full transform transition-all duration-300 hs-overlay-open:translate-x-0 lg:bottom-0 lg:end-auto lg:z-30 lg:block lg:translate-x-0 rtl:translate-x-full rtl:hs-overlay-open:translate-x-0 rtl:lg:translate-x-0 print:hidden [--body-scroll:true] [--overlay-backdrop:true] lg:[--overlay-backdrop:false]">
-
-    <!-- Sidenav Logo -->
-    <div class="sticky top-0 flex h-topbar items-center justify-center px-6 border-b border-default-200 .bg-primary/5">
-      <a href="index.html">
-        <img src="<?= App::get("public_uri"); ?>/img/tibma logo.png" alt="logo" class="flex h-10">
-      </a>
-    </div>
-
-    <div class="p-4" data-simplebar>
-      <ul class="admin-menu hs-accordion-group flex w-full flex-col gap-1.5">
-        <li class="menu-item">
-          <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 <?php echo (strpos($_SERVER['REQUEST_URI'], '/dashboard') !== false) ? 'active' : ''; ?>"
-            href="<?php echo App::get('root_uri') ?>/admin/dashboard">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-            </svg>
-            Dashboard
-          </a>
-        </li>
-
-
-        <li class="menu-item">
-          <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 <?php echo (strpos($_SERVER['REQUEST_URI'], '/report') !== false) ? 'active' : ''; ?>"
-            href="<?php echo App::get('root_uri'); ?>/admin/report">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-            </svg>
-            Reports
-          </a>
-        </li>
-
-        <li class="menu-item">
-          <a class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 hs-accordion-active:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/notification') !== false) ? 'active' : ''; ?>"
-            href="<?php echo App::get('root_uri'); ?>/admin/notification">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0M3.124 7.5A8.969 8.969 0 0 1 5.292 3m13.416 0a8.969 8.969 0 0 1 2.168 4.5" />
-            </svg>
-            <span class="menu-text"> Notifications </span>
-          </a>
-        </li>
-
-        <li class="menu-item hs-accordion">
-          <a href="javascript:void(0)"
-            class="hs-accordion-toggle group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5 hs-accordion-active:bg-primary/10 hs-accordion-active:text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-            </svg>
-            <span class="menu-text"> Manage </span>
-            <span
-              class="i-tabler-chevron-right ms-auto text-sm transition-all hs-accordion-active:rotate-90"></span>
-          </a>
-
-          <div class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300">
-            <ul class="mt-2 space-y-2">
-              <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/dosen') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/dosen">
-                  <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                  Dosen
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/mahasiswa') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/mahasiswa">
-                  <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                  Mahasiswa
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/admin') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/admin">
-                  <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                  Admin
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/violation-level') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/violation-level">
-                  <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                  Violation level
-                </a>
-              </li>
-              <li class="menu-item">
-                <a class="flex items-center gap-x-3.5 rounded-md px-5 py-2 text-sm font-medium text-default-700 hover:bg-default-900/5 <?= (strpos($_SERVER['REQUEST_URI'], '/manage/code-of-counduct') !== false) ? 'active' : ''; ?>"
-                  href="<?php echo App::get('root_uri'); ?>/admin/manage/code-of-counduct">
-                  <i class="i-tabler-circle-filled scale-[.25] text-lg opacity-75"></i>
-                  Code of counduct
-                </a>
-              </li>
-          </div>
-        </li>
-
-        <li class="menu-item">
-          <a href="maps-vector.html"
-            class="group flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-700 transition-all hover:bg-default-900/5">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
-            </svg>
-            <span class="menu-text"> Log Activity </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </aside>
+  <?php Helper::importView('partials/sidebar.view.php');
+  ?>
   <!-- End Sidebar -->
-
-  <!-- Start Page Content here -->
   <div class="page-content">
-
     <!-- Topbar Start -->
-    <header class="app-header h-topbar flex bg-white border-b border-default-200">
-      <div class="container flex ">
-        <!-- Topbar Brand Logo -->
-        <a href="index.html" class="md:hidden flex">
-          <img src="<?= App::get("public_uri"); ?>/img/logo-sm.png" class="h-6" alt="Small logo">
-        </a>
-
-        <!-- Sidenav Menu Toggle Button -->
-        <button id="button-toggle-menu" class="text-default-500 hover:text-default-600 p-2 rounded-full cursor-pointer"
-          data-hs-overlay="#app-menu" aria-label="Toggle navigation">
-          <i class="i-tabler-menu-2 text-2xl"></i>
-        </button>
-
-        <!-- Topbar Search -->
-        <div class="md:flex hidden items-center relative">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <i class="i-ph-magnifying-glass text-base"></i>
-          </div>
-          <input type="search"
-            class="form-input px-10 rounded-lg  bg-gray-500/10 border-transparent focus:border-transparent w-80"
-            placeholder="Search...">
-          <button type="button" class="absolute inset-y-0 end-0 flex items-center pe-3">
-            <i class="i-ph-microphone text-base hover:text-black"></i>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-x-4 ms-auto">
-          <!-- Fullscreen Toggle Button -->
-          <div class="md:flex hidden">
-            <button data-toggle="fullscreen" type="button" class="p-2">
-              <span class="sr-only">Fullscreen Mode</span>
-              <span class="flex items-center justify-center size-6">
-                <i class="i-tabler-maximize text-2xl flex group-[-fullscreen]:hidden"></i>
-                <i class="i-tabler-minimize text-2xl hidden group-[-fullscreen]:flex"></i>
-              </span>
-            </button>
-          </div>
-
-          <!-- Profile Dropdown Button -->
-          <div class="relative z-10">
-            <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
-              <button type="button" class="hs-dropdown-toggle">
-                <img src="<?= App::get("public_uri"); ?>/img/users/nopal.png" alt="user-image" class="rounded-full h-10">
-              </button>
-              <div
-                class="hs-dropdown-menu duration mt-2 min-w-48 rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 hidden">
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="#">
-                  Profile
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="#">
-                  Feed
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="#">
-                  Analytics
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="#">
-                  Settings
-                </a>
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="#">
-                  Support
-                </a>
-                <hr class="my-2">
-                <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-                  href="<?= App::get("root_uri"); ?>/auth/logout">
-                  Log Out
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <?php Helper::importView('partials/topbar.view.php');
+    ?>
     <!-- Topbar End -->
 
     <main class="flex-1">
       <!-- Page Title Start -->
-      <div class="flex items-center md:justify-between flex-wrap gap-2 mb-6">
-        <div class="md:flex hidden items-center gap-3 text-sm font-semibold">
-          <a href="#" class="text-sm font-medium text-default-700" aria-current="page">Manage Mahasiswa</a>
+      <div class="sm:flex">
+        <?= $flash ?>
+        <div class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 ">
+          <div class="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0">
+            <h1>Manage mahasiswa</h1>
+          </div>
+        </div>
+        <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
+          <button type="button" data-modal-toggle="add-user-modal" class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 sm:w-auto">
+            <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
+            </svg>
+            Add user
+          </button>
         </div>
       </div>
       <!-- Page Title End -->
+      <div class="flex flex-col">
+        <div class="overflow-x-auto">
+          <div class="inline-block min-w-full align-middle">
+            <div class="overflow-hidden shadow">
+              <table class="min-w-full divide-y divide-gray-200 table-fixed ">
+                <thead class="bg-gray-100 ">
+                  <tr>
+
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      Name
+                    </th>
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      Username
+                    </th>
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      nim
+                    </th>
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      Address
+                    </th>
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      Phone Number
+                    </th>
+                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200 ">
+                  <?php foreach ($users as $mahasiswa) : ?>
+                    <?php $mahasiswaRole = $mahasiswa->getRoleDetail(); ?>
+
+                    <tr class="hover:bg-gray-100">
+                      <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
+                        <img class="w-10 h-10 rounded-full" src="<?= $mahasiswa->getImageUrl() ?>" alt="Neil Sims avatar">
+                        <div class="text-sm font-normal text-gray-500 ">
+                          <div class="text-base font-semibold text-gray-900 "><?= $mahasiswa->getName(); ?></div>
+                          <div class="text-sm font-normal text-gray-500 "><?= $mahasiswa->getEmail(); ?></div>
+                        </div>
+                      </td>
+                      <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs "><?= $mahasiswa->getUsername(); ?></td>
+                      <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap "><?= $mahasiswaRole->getNim(); ?></td>
+                      <td class="p-4 text-base font-medium text-gray-900 whitespace"><?= $mahasiswa->getAddress(); ?></td>
+                      <td class="p-4 text-base font-normal text-gray-900 whitespace-nowrap ">
+                        <?= $mahasiswa->getPhoneNumber(); ?>
+                      </td>
+                      <td class="p-4 space-x-2 whitespace-nowrap" id="action_wrapper">
+                        <button type="button" data-modal-toggle="edit-<?= $mahasiswa->getIdUser(); ?>-modal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300">
+                          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
+                            <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path>
+                          </svg>
+                          Edit user
+                        </button>
+
+                        <div class="fixed left-0 right-0 z-50 items-center justify-center overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full hidden" id="edit-<?= $mahasiswa->getIdUser(); ?>-modal" aria-hidden="true">
+                          <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                              <!-- Modal header -->
+                              <div class="flex items-start justify-between p-5 border-b rounded-t">
+                                <h3 class="text-xl font-semibold ">
+                                  Edit user
+                                </h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="edit-<?= $mahasiswa->getIdUser(); ?>-modal" fdprocessedid="qln61">
+                                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                  </svg>
+                                </button>
+                              </div>
+                              <!-- Modal body -->
+                              <div class="p-6 space-y-6">
+                                <form action="<?= $updateMahasiswaEndpoint ?>" method="POST" id="edit-<?= $mahasiswa->getIdUser(); ?>-form">
+                                  <input type="hidden" class="form-control" id="id_user" name="id_user" value="<?= $mahasiswa->getIdUser(); ?>">
+                                  <div class="grid grid-cols-6 gap-6">
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+                                      <input type="text" name="first-name" id="first-name" value="<?= $mahasiswa->getFirstName(); ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" placeholder="Bonnie" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+                                      <input type="text" name="last-name" id="last-name" value="<?= $mahasiswa->getLastName(); ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="Green" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                                      <input type="email" name="email" id="email" value="<?= $mahasiswa->getEmail(); ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="example@company.com" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
+                                      <input type="text" name="username" id="username" value="<?= $mahasiswa->getUsername(); ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="username" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="nim" class="block mb-2 text-sm font-medium text-gray-900">Nim</label>
+                                      <input type="text" name="nim" id="nim" value="<?= $mahasiswaRole->getNim(); ?>" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="nim" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="prodi" class="block mb-2 text-sm font-medium text-gray-900">Select an prodi</label>
+                                      <select name="prodi" id="prodi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5">
+                                        <?php foreach (MahasiswaModel::getProdiChoices() as $prodi) : ?>
+                                          <option value="<?= $prodi ?>">
+                                            <?= $prodi ?>
+                                          </option>
+                                        <?php endforeach; ?>
+                                      </select>
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
+                                      <input type="text" name="phone-number" value="<?= $mahasiswa->getPhoneNumber(); ?>" id="phone-number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="phone number" required="">
+                                    </div>
+                                    <div class="col-span-6 sm:col-span-3">
+                                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                                      <input type="text" name="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5" placeholder="password" required="">
+                                    </div>
+                                    <div class="col-span-6">
+                                      <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Address</label>
+                                      <textarea id="address" name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500" placeholder="Write your address here"> <?= $mahasiswa->getAddress() ?> </textarea>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- Modal footer -->
+                              <div class="items-center p-6 border-t border-gray-200 rounded-b">
+                                <button onclick="$('#edit-<?= $mahasiswa->getIdUser(); ?>-form').submit();" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit" fdprocessedid="29okev">Save all</button>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" data-modal-toggle="delete-<?= $mahasiswa->getIdUser(); ?>-modal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 ">
+                          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                          </svg>
+                          Delete user
+                        </button>
+
+                        <!-- Modal delete -->
+                        <div class="fixed left-0 right-0 z-50 items-center justify-center overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full hidden" id="delete-<?= $mahasiswa->getIdUser(); ?>-modal" aria-hidden="true">
+                          <div class="relative w-full h-full max-w-md px-4 md:h-auto">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                              <!-- Modal header -->
+                              <div class="flex justify-end p-2">
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="delete-<?= $mahasiswa->getIdUser(); ?>-modal" fdprocessedid="si7trt">
+                                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                  </svg>
+                                </button>
+                              </div>
+                              <!-- Modal body -->
+                              <div class="p-6 pt-0 text-center">
+                                <svg class="w-16 h-16 mx-auto text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <h3 class="mt-5 mb-6 text-lg text-gray-500">Are you sure you want to delete <?= $mahasiswa->getUsername(); ?></h3>
+                                <form action="<?= $deleteMahasiswaEndpoint ?>" method="POST">
+                                  <input type="hidden" name="id_user" value="<?= $mahasiswa->getIdUser(); ?>">
+                                  <button type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-base inline-flex items-center px-3 py-2.5 text-center mr-2">
+                                    Yes, I'm sure
+                                  </button>
+                                  <button type="button" class="text-gray-900 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-purple-300 border border-gray-200 font-medium inline-flex items-center rounded-lg text-base px-3 py-2.5 text-center" data-modal-toggle="delete-<?= $mahasiswa->getIdUser(); ?>-modal">
+                                    No, cancel
+                                  </button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Add User -->
+      <div class="fixed left-0 right-0 z-50 items-center justify-center overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full hidden" id="add-user-modal" aria-modal="true" role="dialog">
+        <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-5 border-b rounded-t ">
+              <h3 class="text-xl font-semibold">
+                Add new user
+              </h3>
+              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="add-user-modal">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 space-y-6">
+              <form action="<?= $newMahasiswaEndpoint ?>" method="post" id="add-user-form">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+                    <input type="text" name="first-name" id="first-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="Bonnie" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+                    <input type="text" name="last-name" id="last-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="Green" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                    <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="example@company.com" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
+                    <input type="text" name="username" id="username" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="username" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="nim" class="block mb-2 text-sm font-medium text-gray-900">nim</label>
+                    <input type="text" name="nim" id="nim" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="nim" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="prodi" class="block mb-2 text-sm font-medium text-gray-900">Select an prodi</label>
+                    <select name="prodi" id="prodi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5">
+                      <?php foreach (MahasiswaModel::getProdiChoices() as $prodi) : ?>
+                        <option value="<?= $prodi ?>">
+                          <?= $prodi ?>
+                        </option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Phone number</label>
+                    <input type="text" name="phone-number" id="phone-number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="phone number" required="">
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                    <input type="text" name="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5  " placeholder="password" required="">
+                  </div>
+                  <div class="col-span-6">
+                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Address</label>
+                    <textarea id="address" name="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500" placeholder="Write your address here"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="items-center p-6 border-t border-gray-200 rounded-b ">
+              <button class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="submit" onclick="$('#add-user-form').submit();">Add user</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- Modal End -->
     </main>
+
   </div>
+
 </div>
+<script>
+  function deleteModal() {
+    const template = /*template*/ `
+  
+    `
+    $('#action_wrapper').append(template)
+    $('#delete-user-modal').show()
+    const myModalEl = document.getElementById('delete-user-modal')
+    myModalEl.addEventListener('hidden', event => {
+      $('#delete-user-modal').remove();
+    })
+
+  }
+</script>
+
+<script src="https://flowbite-admin-dashboard.vercel.app//app.bundle.js"></script>

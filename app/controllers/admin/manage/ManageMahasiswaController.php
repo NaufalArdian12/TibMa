@@ -45,11 +45,11 @@ class ManageMahasiswaController {
 		if (
 			isset($_POST['username']) && $_POST['username'] != '' &&
 			isset($_POST['nim']) && $_POST['nim'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['prodi']) && $_POST['prodi'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != '' &&
 			isset($_POST['password']) && $_POST['password'] != ''
 		) {
@@ -59,11 +59,11 @@ class ManageMahasiswaController {
 			// get input
 			$username = $_POST['username'];
 			$nim = $_POST['nim'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$prodi = $_POST['prodi'];
 			$email = $_POST['email'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$address = $_POST['address'];
 			$role = 'mahasiswa';
 
@@ -104,11 +104,11 @@ class ManageMahasiswaController {
 			isset($_POST['id_user']) && $_POST['id_user'] != '' &&
 			isset($_POST['username']) && $_POST['username'] != '' &&
 			isset($_POST['nim']) && $_POST['nim'] != '' &&
-			isset($_POST['firstname']) && $_POST['firstname'] != '' &&
-			isset($_POST['lastname']) && $_POST['lastname'] != '' &&
+			isset($_POST['first-name']) && $_POST['first-name'] != '' &&
+			isset($_POST['last-name']) && $_POST['last-name'] != '' &&
 			isset($_POST['prodi']) && $_POST['prodi'] != '' &&
 			isset($_POST['email']) && $_POST['email'] != '' &&
-			isset($_POST['no_telp']) && $_POST['no_telp'] != '' &&
+			isset($_POST['phone-number']) && $_POST['phone-number'] != '' &&
 			isset($_POST['address']) && $_POST['address'] != ''
 		) {
 			$userService = UserService::getInstance();
@@ -118,11 +118,11 @@ class ManageMahasiswaController {
 			$idUser = $_POST['id_user'];
 			$username = $_POST['username'];
 			$nim = $_POST['nim'];
-			$firstName = $_POST['firstname'];
-			$lastName = $_POST['lastname'];
+			$firstName = $_POST['first-name'];
+			$lastName = $_POST['last-name'];
 			$prodi = $_POST['prodi'];
 			$email = $_POST['email'];
-			$phoneNumber = $_POST['no_telp'];
+			$phoneNumber = $_POST['phone-number'];
 			$address = $_POST['address'];
 			$role = 'mahasiswa';
 
