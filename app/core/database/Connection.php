@@ -7,10 +7,10 @@ class Connection
 	{
 		try {
 			return new PDO(
-				'mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . ';port=' . $config['port'],
+				'sqlsrv:server=' . $config['host'] . ';Database=' . $config['name'],
 				$config['username'],
 				$config['password'],
-				$config['options']
+				// $config['options']
 			);
 		} catch	
 		(PDOException $e) {
