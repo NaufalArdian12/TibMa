@@ -13,7 +13,7 @@ class CodeOfConductService extends DBService
     }
 
     public function getAllCodeOfConduct(int $page = 0): array {
-        $rawCodeOfConducts = $this->getDB()->findAll($this->getTable(), 'id_code_of_conduct', 'ASC', $page);
+        $rawCodeOfConducts = $this->getDB()->findAll($this->getTable(), 'id_code_of_conduct', 'ASC', 0);
         /**
          * @var CodeOfConductModel[] $rawCodeOfConducts
          */
