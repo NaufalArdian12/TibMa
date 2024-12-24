@@ -6,7 +6,7 @@ class QueryBuilder
 	protected $pdo;
 	protected int $paginationLimit;
 	function __construct(PDO $pdo)
-	{	
+	{
 		/**
 		 * @var array $config
 		 */
@@ -23,8 +23,8 @@ class QueryBuilder
 		 */
 		$config = App::get('config');
 		$timezone = $config['timezone'];
-		$this->pdo->exec("SET time_zone = '{$timezone}'");
-	} 
+		$this->pdo->exec("SET time_zone =  CONVERT_TZ(NOW(), 'UTC', '{$timezone}')");
+	}
 
 	public function getLastInsertId()
 	{
@@ -34,9 +34,9 @@ class QueryBuilder
 	public function count(string $table, array $where = []): int
 	{
 		$sql = sprintf(
-			"SELECT COUNT(*) FROM %s %s",
+			"SELECT COUNT(*) FROM [%s] data %s",
 			$table,
-			$where ? "WHERE " . implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($where))) : ''
+			$where ? "WHERE " . implode(' AND ', array_map(fn($key) => "$key = :$key", array_keys($where))) : ''
 		);
 
 		$statement = $this->pdo->prepare($sql);
@@ -51,7 +51,7 @@ class QueryBuilder
 	 */
 	public function selectAll($table)
 	{
-		$statement = $this->pdo->prepare("SELECT * FROM {$table}");
+		$statement = $this->pdo->prepare("SELECT * FROM [{$table}]");
 		$statement->execute();
 		return $statement->fetchAll(PDO::FETCH_CLASS) ?? [];
 	}
@@ -63,58 +63,62 @@ class QueryBuilder
 	 * @return array 
 	 */
 
-	 public function execute($sql, $params = []) {
+	public function execute($sql, $params = [])
+	{
 		try {
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute($params);
 			return $statement->fetchAll(PDO::FETCH_CLASS) ?? [];
 		} catch (PDOException $e) {
-			die("Whoops!! Something Went Wrong!!!". $e->getMessage());
+			die("Whoops!! Something Went Wrong!!!" . $e->getMessage());
 		}
-	 }
+	}
 
-	 public function findAll($table, string $orderby = '', string $order = 'ASC', int $page = 0) {
+	public function findAll($table, string $orderby = '', string $order = 'ASC', int $page = 0)
+	{
 		$sql = sprintf(
-			"SELECT * FROM %s %s",
+			"SELECT * FROM [%s] %s",
 			$table,
-			($orderby ? "ORDER BY $orderby $order" : '') .
-			($this->paginationLimit > 0 && $page > 0 ? " LIMIT " . ($page - 1) * $this->paginationLimit . ", $this->paginationLimit" : '')
+			($orderby ? "ORDER BY [$orderby] $order" : '') .
+				($this->paginationLimit > 0 && $page > 0 ? " OFFSET " . (($page - 1) * $this->paginationLimit) . " ROWS FETCH NEXT $this->paginationLimit ROWS ONLY" : '')
 		);
+
 
 		try {
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute();
 			return $statement->fetchAll(PDO::FETCH_CLASS) ?? [];
 		} catch (PDOException $e) {
-			die("Whoops!! Something Went Wrong!!!". $e->getMessage());
+			die("Whoops!! Something Went Wrong!!!" . $e->getMessage());
 		}
-	 }
+	}
 
-	 public function findMany($table, $parameters = [], string $orderby = '', string $order = 'ASC', int $page = 0)
-	 {
+	public function findMany($table, $parameters = [], string $orderby = '', string $order = 'ASC', int $page = 0)
+	{
 		$sql = sprintf(
-			"SELECT * FROM %s WHERE %s %s",
+			"SELECT * FROM [%s] WHERE %s %s",
 			$table,
-			implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($parameters))),
-			($orderby ? "ORDER BY $orderby $order" : '') . 
-			($this->paginationLimit > 0 && $page > 0 ? " LIMIT " . ($page - 1) * $this->paginationLimit . ", $this->paginationLimit" : '')
+			implode(' AND ', array_map(fn($key) => "[$key] = :$key", array_keys($parameters))),
+			($orderby ? "ORDER BY $orderby $order" : '') .
+				($this->paginationLimit > 0 && $page > 0 ? " OFFSET " . (($page - 1) * $this->paginationLimit) . " ROWS FETCH NEXT $this->paginationLimit ROWS ONLY" : '')
 		);
+
 
 		try {
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute($parameters);
 			return $statement->fetchAll(PDO::FETCH_CLASS) ?? [];
 		} catch (PDOException $e) {
-			die("Whoops!! Something Went Wrong!!!". $e->getMessage());
+			die("Whoops!! Something Went Wrong!!!" . $e->getMessage());
 		}
-	 }
+	}
 
 	public function findOne($table, $parameters = [])
 	{
 		$sql = sprintf(
-			"SELECT * FROM %s WHERE %s LIMIT 1",
+			"SELECT TOP 1 * FROM [%s] WHERE %s",
 			$table,
-			implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($parameters)))
+			implode(' AND ', array_map(fn($key) => "[$key] = :$key", array_keys($parameters)))
 		);
 		try {
 			$statement = $this->pdo->prepare($sql);
@@ -129,9 +133,9 @@ class QueryBuilder
 	public function findWhere($table, $parameters = [])
 	{
 		$sql = sprintf(
-			"SELECT * FROM %s WHERE %s",
+			"SELECT * FROM [%s] WHERE %s",
 			$table,
-			implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($parameters)))
+			implode(' AND ', array_map(fn($key) => "$key = :$key", array_keys($parameters)))
 		);
 
 		try {
@@ -145,13 +149,13 @@ class QueryBuilder
 	}
 
 	public function findWhereNot($table, $parameters = [], string $orderby = '', string $order = 'ASC', int $limit = 0)
-	 {
+	{
 		$sql = sprintf(
-			"SELECT * FROM %s WHERE %s %s",
+			"SELECT * FROM [%s] WHERE %s %s",
 			$table,
-			implode(' AND ', array_map(fn ($key) => "$key != :$key", array_keys($parameters))),
-			($orderby ? "ORDER BY $orderby $order" : '') . 
-			($limit > 0 ? " LIMIT $limit" : '')
+			implode(' AND ', array_map(fn($key) => "[$key] != :$key", array_keys($parameters))),
+			($orderby ? "ORDER BY [$orderby] $order" : '') .
+				(($limit > 0) ? " OFFSET 0 ROWS FETCH NEXT $limit ROWS ONLY" : '')
 		);
 
 		try {
@@ -159,9 +163,9 @@ class QueryBuilder
 			$statement->execute($parameters);
 			return $statement->fetchAll(PDO::FETCH_CLASS) ?? [];
 		} catch (PDOException $e) {
-			die("Whoops!! Something Went Wrong!!!". $e->getMessage());
+			die("Whoops!! Something Went Wrong!!!" . $e->getMessage());
 		}
-	 }
+	}
 
 	/**
 	 * Insert new data into the table
@@ -169,7 +173,7 @@ class QueryBuilder
 	 * @param  array  $params [description]
 	 * @return [type]         [description]
 	 */
-	public function insert(string $table, array $params = []): string 
+	public function insert(string $table, array $params = []): string
 	{
 		$sql = sprintf(
 			"INSERT INTO %s (%s) VALUES(%s)",
@@ -177,7 +181,7 @@ class QueryBuilder
 			implode(',', array_keys($params)),
 			':' . implode(', :', array_keys($params))
 		);
-
+ 
 		try {
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute($params);
@@ -188,12 +192,13 @@ class QueryBuilder
 		}
 	}
 
-	public function update(string $table, array $params = [], array $where = []) {
+	public function update(string $table, array $params = [], array $where = [])
+	{
 		$sql = sprintf(
 			"UPDATE %s SET %s WHERE %s",
 			$table,
-			implode(',', array_map(fn ($key) => "$key = :$key", array_keys($params))),
-			implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($where)))
+			implode(',', array_map(fn($key) => "$key = :$key", array_keys($params))),
+			implode(' AND ', array_map(fn($key) => "$key = :$key", array_keys($where)))
 		);
 
 		try {
@@ -204,18 +209,32 @@ class QueryBuilder
 		}
 	}
 
-	public function delete(string $table, array $where = []) {
+	public function delete(string $table, array $where = [])
+	{
+		// Build the WHERE clause dynamically with parameterized values
+		$whereClause = implode(' AND ', array_map(fn($key) => "[" . $key . "] = :$key", array_keys($where)));
+
+		// SQL DELETE query for SQL Server
 		$sql = sprintf(
-			"DELETE FROM %s WHERE %s",
+			"DELETE FROM [%s] WHERE %s",
 			$table,
-			implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($where)))
+			$whereClause
 		);
 
 		try {
+			// Prepare and execute the query with parameters
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute($where);
+
+			// Check if any rows were affected
+			if ($statement->rowCount() > 0) {
+				return true; // Successfully deleted
+			} else {
+				return false; // No rows affected (maybe the record was not found)
+			}
 		} catch (PDOException $e) {
-			die("Whoops!! Something Went Wrong!!!");
+			// Handle the error
+			die("Error occurred: " . $e->getMessage());
 		}
 	}
 }
