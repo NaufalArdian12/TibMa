@@ -1099,6 +1099,7 @@ return array(
     'Monolog\\Handler\\WebRequestRecognizerTrait' => $vendorDir . '/monolog/monolog/src/Monolog/Handler/WebRequestRecognizerTrait.php',
     'Monolog\\Handler\\WhatFailureGroupHandler' => $vendorDir . '/monolog/monolog/src/Monolog/Handler/WhatFailureGroupHandler.php',
     'Monolog\\Handler\\ZendMonitorHandler' => $vendorDir . '/monolog/monolog/src/Monolog/Handler/ZendMonitorHandler.php',
+    'Monolog\\JsonSerializableDateTimeImmutable' => $vendorDir . '/monolog/monolog/src/Monolog/JsonSerializableDateTimeImmutable.php',
     'Monolog\\Level' => $vendorDir . '/monolog/monolog/src/Monolog/Level.php',
     'Monolog\\LogRecord' => $vendorDir . '/monolog/monolog/src/Monolog/LogRecord.php',
     'Monolog\\Logger' => $vendorDir . '/monolog/monolog/src/Monolog/Logger.php',
