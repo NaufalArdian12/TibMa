@@ -20,7 +20,7 @@ class ReportCommentService extends DBService {
             foreach ($rawReportComments as $rawReport) {
                 $reportComments[] = ReportCommentModel::fromStdClass($rawReport);
             }
-        }
+        }   
 
         return $reportComments;
     }

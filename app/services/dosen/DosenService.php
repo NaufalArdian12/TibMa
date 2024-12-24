@@ -63,7 +63,7 @@ class DosenService extends DBService
     {
         $reportCommentService = ReportCommentService::getInstance();
         $reportCommentView = $reportCommentService->getView();
-        $sql = "SELECT * FROM `$reportCommentView` WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = true AND id_user != :id_user";
+        $sql = "SELECT * FROM $reportCommentView WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = 1 AND id_user != :id_user";
 
         $rawReportComments = $this->getDB()->execute($sql, [
             'nidn_dosen' => $dosenRole->getNidn(),
@@ -83,7 +83,7 @@ class DosenService extends DBService
 
     public function getDosenNotificationCount(DosenModel $dosenRole)
     {
-        $sql = "SELECT COUNT(*) as count FROM `tb_report_comment` WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = true AND id_user != :id_user";
+        $sql = "SELECT COUNT(*) as count FROM tb_report_comment WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = 1 AND id_user != :id_user";
 
         $rawReportComments = $this->getDB()->execute($sql, [
             'nidn_dosen' => $dosenRole->getNidn(),
