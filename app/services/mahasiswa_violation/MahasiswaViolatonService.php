@@ -68,6 +68,6 @@ class MahasiswaViolationService extends DBService
             $ids[] = $mahasiswaViolation->getIdMahasiswaViolation();
         }
 
-        return $this->getDB()->execute("UPDATE {$this->getTable()} SET is_new = false WHERE id_mahasiswa_violation IN (" . implode(',', $ids) . ")");
+        return $this->getDB()->execute("UPDATE {$this->getTable()} SET is_new = 0 WHERE id_mahasiswa_violation IN (" . implode(',', $ids) . ")");
     }
 }

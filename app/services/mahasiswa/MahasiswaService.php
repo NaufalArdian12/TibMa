@@ -16,7 +16,7 @@ class MahasiswaService extends DBService
     {
         $rawMahasiswas = $this->getDB()->findAll($this->getTable(), 'nim', 'ASC', $page);
         $mahasiswas = [];
-
+        
         if ($rawMahasiswas) {
             foreach ($rawMahasiswas as $rawMahasiswa) {
                 $mahasiswas[] = MahasiswaModel::fromStdClass($rawMahasiswa);
@@ -66,7 +66,7 @@ class MahasiswaService extends DBService
     {
         // Defining Services
         $mahasiswaViolationService = MahasiswaViolationService::getInstance();
-        $mahasiswaViolations = $mahasiswaViolationService->getManyMahasiswaViolation(['nim_mahasiswa' => $mahasiswaModel->getNim(), 'is_new' => true]);
+        $mahasiswaViolations = $mahasiswaViolationService->getManyMahasiswaViolation(['nim_mahasiswa' => $mahasiswaModel->getNim(), 'is_new' => 1]);
 
         return count($mahasiswaViolations) ?? 0;
     }
@@ -75,7 +75,7 @@ class MahasiswaService extends DBService
     {
         $reportCommentService = ReportCommentService::getInstance();
         $reportCommentView = $reportCommentService->getView();
-        $sql = "SELECT * FROM `$reportCommentView` WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = true AND id_user != :id_user";
+        $sql = "SELECT * FROM $reportCommentView WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = 1 AND id_user != :id_user";
 
         $rawReportComments = $this->getDB()->execute($sql, [
             'nidn_dosen' => $dosenRole->getNidn(),
@@ -95,7 +95,7 @@ class MahasiswaService extends DBService
 
     public function getDosenNotificationCount(DosenModel $dosenRole)
     {
-        $sql = "SELECT COUNT(*) as count FROM `tb_report_comment` WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = true AND id_user != :id_user";
+        $sql = "SELECT COUNT(*) as count FROM tb_report_comment WHERE id_report IN (SELECT id_report from tb_report WHERE nidn_dosen = :nidn_dosen) AND is_new = 1 AND id_user != :id_user";
 
         $rawReportComments = $this->getDB()->execute($sql, [
             'nidn_dosen' => $dosenRole->getNidn(),

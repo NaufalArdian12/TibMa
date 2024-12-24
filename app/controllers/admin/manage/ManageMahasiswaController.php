@@ -12,18 +12,19 @@ class ManageMahasiswaController {
 		$users = $userService->getManyUser(['role' => 'mahasiswa']);
 		$mahasiswas = $mahasiswaService->getAllMahasiswa($currentPage);
 		$mahasiswaCount = $mahasiswaService->count();
-
+		
 		$prevPage = PaginationUtil::getPrevPage($currentPage);
 		$pageCount = PaginationUtil::getPageCount($mahasiswaCount);
 		$nextPage = PaginationUtil::getNextPage($mahasiswas, $currentPage);
-
+		
+		
 		for ($i = 0; $i < count($users); $i++) {
 			for ($j = 0; $j < count($mahasiswas); $j++) {
 				if ($users[$i]->getIdUser() == $mahasiswas[$j]->getIdUser()) {
 					$users[$i]->setRoleDetail($mahasiswas[$j]);
 				}
 			}
-		}
+		}	
 
 		$data = [
 			'users' => $users,
