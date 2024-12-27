@@ -100,13 +100,14 @@ class AdminController
 			'firstname' => $user->getFirstName(),
 			'lastname' => $user->getLastName(),
 			'newReportComments' => $newReportComments,
+			'title' => 'Admin notification'
 		];
 
 		// mark all report comments as read
 		if (count($newReportComments) > 0)
 			$reportCommentService->markReportCommentAsRead($newReportComments);
 
-			return Helper::view('admin/notification', array_merge($data, ['title' => 'Admin notification']));
+			return Helper::view('admin/notification', $data);
 	}
 
 	/**
