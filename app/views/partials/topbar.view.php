@@ -1,4 +1,5 @@
 <?php
+
 /**
  *   @var UserModel $user
  */
@@ -52,25 +53,7 @@ $user = Session::getInstance()->get('user');
           <div
             class="hs-dropdown-menu duration mt-2 min-w-48 rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 hidden">
             <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-              href="#">
-              Profile
-            </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-              href="#">
-              Feed
-            </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-              href="#">
-              Analytics
-            </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-              href="#">
-              Settings
-            </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
-              href="#">
-              Support
-            </a>
+              href="<?php echo App::get('root_uri') . "/" . $role . "/profile" ?>">Profile</a>
             <hr class="my-2">
             <a class="flex items-center py-2 px-3 rounded-md text-sm text-default-800 hover:bg-gray-100"
               href="<?= App::get("root_uri"); ?>/auth/logout">
