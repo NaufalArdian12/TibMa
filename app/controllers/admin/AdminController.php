@@ -62,6 +62,8 @@ class AdminController
 
 		$codeOfConducts = $codeOfConductService->getAllCodeOfConduct();
 
+		
+
 		for ($i = 0; $i < count($reports); $i++) {
 			for ($j = 0; $j < count($codeOfConducts); $j++) {
 				if ($reports[$i]->getIdCodeOfConduct() == $codeOfConducts[$j]->getIdCodeOfConduct()) {
@@ -71,10 +73,11 @@ class AdminController
 		}
 
 		$data = [
-			'reports' => $reports
+			'reports' => $reports,
+			'title' => 'Admin Report'
 		];
 
-		return Helper::view('admin/report', array_merge($data, ['title' => 'Admin Report']));
+		return Helper::view('admin/report', $data);
 	}
 
 	/**

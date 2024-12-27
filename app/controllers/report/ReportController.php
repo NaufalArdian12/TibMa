@@ -21,9 +21,10 @@ class ReportController
 			'codeOfConducts' => $codeOfConducts,
 			'addNewReportCommentEndpoint' => App::get('root_uri') . "/report/detail/$idReport/comment/new",
 			'updateReportDetailEndpoint' => App::get('root_uri') . "/report/detail/$idReport/update",
+			'title' => 'Report'
 		];
 
-		return Helper::view('report/report_detail', ['title' => 'Report']);
+		return Helper::view('report/report_detail', $data);
 	}
 
 	public function addNewReportComment($idReport)
