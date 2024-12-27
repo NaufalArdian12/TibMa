@@ -224,10 +224,11 @@ class DosenController
 			'flash' => Flasher::flash(),
 			'users' => $users,
 			'codeOfConducts' => $codeOfConducts,
-			'addNewReportEndpoint' => App::get('root_uri') . '/dosen/report/new'
+			'addNewReportEndpoint' => App::get('root_uri') . '/dosen/report/new',
+			'title' => 'Dosen Report'
 		];
 
-		return Helper::view('dosen/report', ['title' => 'Dosen Report']);
+		return Helper::view('dosen/report', $data);
 	}
 
 	public function addNewReport()

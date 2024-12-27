@@ -48,15 +48,6 @@
                       NIDN
                     </th>
                     <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
-                      title
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
-                      Address
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
-                      Phone Number
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase ">
                       Actions
                     </th>
                   </tr>
@@ -75,11 +66,6 @@
                       </td>
                       <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs "><?= $dosen->getUsername(); ?></td>
                       <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap "><?= $dosenRole->getNidn(); ?></td>
-                      <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap "><?= $dosenRole->getTitle(); ?></td>
-                      <td class="p-4 text-base font-medium text-gray-900 whitespace"><?= $dosen->getAddress(); ?></td>
-                      <td class="p-4 text-base font-normal text-gray-900 whitespace-nowrap ">
-                        <?= $dosen->getPhoneNumber(); ?>
-                      </td>
                       <td class="p-4 space-x-2 whitespace-nowrap" id="action_wrapper">
                         <button type="button" data-modal-toggle="edit-<?= $dosen->getIdUser(); ?>-modal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300">
                           <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
