@@ -1,4 +1,9 @@
-<?php ?>
+<?php
+
+/**
+ * @var ReportCommentModel[] $newReportComments
+ */
+?>
 <div class="wrapper">
 
   <!-- Start Sidebar -->
@@ -29,31 +34,27 @@
                   </div>
                 </div>
               </div>
-            <?php endif; ?>
-
-            <?php
-            /**
-             * @var ReportCommentModel[] $newReportComments
-             */
-            foreach ($newReportComments as $comment): ?>
-              <div class="xl:w-10/12 w-full" id="<?= $comment->getIdReportComment() ?>">
-                <div class="flex flex-col p-3 bg-gray-100 rounded-lg">
-                  <div class="w-full">
-                    <h5 class="text-lg font-medium">
-                      <span class="bg-green-500 text-white px-2 py-1 rounded-full">
-                        #<?= $comment->getIdReportComment() ?>
-                      </span>
-                      <?= $comment->getAuthorFirstName() ?> Commented On Report #<?= $comment->getIdReport() ?>
-                    </h5>
+            <?php else: ?>
+              <?php foreach ($newReportComments as $comment): ?>
+                <div class="xl:w-10/12 w-full" id="<?= $comment->getIdReportComment() ?>">
+                  <div class="flex flex-col p-3 bg-gray-100 rounded-lg">
+                    <div class="w-full">
+                      <h5 class="text-lg font-medium">
+                        <span class="bg-green-500 text-white px-2 py-1 rounded-full">
+                          #<?= $comment->getIdReportComment() ?>
+                        </span>
+                        <?= $comment->getAuthorFirstName() ?> Commented On Report #<?= $comment->getIdReport() ?>
+                      </h5>
+                    </div>
+                    <div class="w-full"></div>
+                    <p class="text-sm text-gray-700 truncate">
+                      <?= $comment->getContent() ?> <a target="_blank" href="<?= $comment->getReferenceUrl() ?>" class="text-blue-500">Show</a>
+                    </p>
                   </div>
-                  <div class="w-full"></div>
-                  <p class="text-sm text-gray-700 truncate">
-                    <?= $comment->getContent() ?> <a target="_blank" href="<?= $comment->getReferenceUrl() ?>" class="text-blue-500">Show</a>
-                  </p>
                 </div>
-              </div>
-            <?php endforeach; ?>
-            <!-- End Notif -->
+              <?php endforeach; ?>
+              <!-- End Notif -->
+            <?php endif; ?>
           </div>
         </div>
       </div>
