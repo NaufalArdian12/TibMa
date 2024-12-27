@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var UserModel $user
  */
@@ -7,25 +8,27 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
 
 /**
  * @var ReportModel $report
- * @var UserModel $mahasiswaUser
- * @var UserModel $dosenUser
- * @var UserModel|null $adminUser
+ * @var UserModel $mahasiswaUser 
+ * @var UserModel $dosenUser 
+ * @var UserModel|null $adminUser 
  * @var CodeOfConductModel $codeOfConduct
  */
 ?>
 
 <!-- this template for dashboard view -->
-<div class="">
-    <div class="flex flex-col lg:flex-row relative">
-        <!-- Start Sidebar -->
-        <div class="col-auto sidebar shadow-sm">
-            <?php Helper::importView('partials/nav_dashboard.view.php'); ?>
-        </div>
+<div class="wrapper">
+
+    <!-- Start Sidebar -->
+    <?php Helper::importView('partials/sidebar.view.php'); ?>
+    <!-- End Sidebar -->
+    <div class="page-content">
+        <!-- Topbar Start -->
+        <?php Helper::importView('partials/topbar.view.php'); ?>
         <!-- End Sidebar -->
 
         <main class="flex-1 relative">
-            <div class="flex justify-end px-auto">
-                <div class="lg:w-10/12 w-full px-5 py-4" title="main">
+            <div class="flex px-auto">
+                <div class="lg:w-10/12 px-5 w-full" title="main">
                     <div class="flex flex-col mb-4">
                         <?= $flash ?>
                         <h1 class="text-2xl font-semibold">Report Detail</h1>
@@ -41,11 +44,11 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
                                     <div class="space-y-2">
                                         <div class="flex items-center space-x-2">
                                             <h6 class="font-semibold">
-                                                <?= GenericUtil::optionalTextRedaction($report->getDosenFirstName() . " " . $report->getDosenLastName(), $isMahasiswa) ?> 
+                                                <?= GenericUtil::optionalTextRedaction($report->getDosenFirstName() . " " . $report->getDosenLastName(), $isMahasiswa) ?>
                                                 <span class="bg-green-500 text-white text-sm px-2 py-1 rounded">#<?= $report->getIdReport() ?></span>
                                             </h6>
                                             <p class="text-sm">
-                                                Submited a Report on <?= GenericUtil::dateToHumanReadable($report->getReportDate()) ?>
+                                                Submitted a Report on <?= GenericUtil::dateToHumanReadable($report->getReportDate()) ?>
                                             </p>
                                         </div>
                                         <hr>
@@ -116,18 +119,18 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
 
                             <?php
                             /**
-                             * @var UserModel $currentUser
+                             * @var UserModel $currentUser 
                              */
-                            $currentUser = Session::getInstance()->get('user');
+                            $currentUser  = Session::getInstance()->get('user');
 
-                            if ($report->isParticipant($currentUser) && !$report->isAlreadyClosed() && $currentUser->getRole() != 'mahasiswa') :
+                            if ($report->isParticipant($currentUser ) && !$report->isAlreadyClosed() && $currentUser ->getRole() != 'mahasiswa') :
                             ?>
                                 <div class="flex mt-3">
                                     <div class="w-auto">
-                                        <img src="<?= $currentUser->getImageUrl() ?>" class="rounded-full w-12 h-12 border-2 border-white" alt="">
+                                        <img src="<?= $currentUser ->getImageUrl() ?>" class="rounded-full w-12 h-12 border-2 border-white" alt="">
                                     </div>
                                     <div class="flex-1 ml-4">
-                                        <h6 class="font-semibold"><?= $currentUser->getUsername() ?></h6>
+                                        <h6 class="font-semibold"><?= $currentUser ->getUsername() ?></h6>
                                         <form method="post" action="<?= $addNewReportCommentEndpoint ?>" enctype="multipart/form-data">
                                             <div class="img-comment-preview hidden">
                                                 <img src="" alt="" width="100px">
@@ -191,7 +194,7 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
                                         </div>
                                         <hr>
                                         <div class="flex justify-end mt-4">
-                                            <?php if ($currentUser->isAdmin()) : ?>
+                                            <?php if ($currentUser ->isAdmin()) : ?>
                                                 <button type="button" class="btn btn-secondary" onclick="checkVal($(this), $('#status').val())" data-bs-toggle="modal" data-bs-target="#modalConfirmation">
                                                     Save
                                                 </button>

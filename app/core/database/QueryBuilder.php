@@ -83,7 +83,6 @@ class QueryBuilder
 				($this->paginationLimit > 0 && $page > 0 ? " OFFSET " . (($page - 1) * $this->paginationLimit) . " ROWS FETCH NEXT $this->paginationLimit ROWS ONLY" : '')
 		);
 
-
 		try {
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute();
