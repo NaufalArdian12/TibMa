@@ -123,14 +123,14 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
                              */
                             $currentUser  = Session::getInstance()->get('user');
 
-                            if ($report->isParticipant($currentUser ) && !$report->isAlreadyClosed() && $currentUser ->getRole() != 'mahasiswa') :
+                            if ($report->isParticipant($currentUser) && !$report->isAlreadyClosed() && $currentUser->getRole() != 'mahasiswa') :
                             ?>
                                 <div class="flex mt-3">
                                     <div class="w-auto">
-                                        <img src="<?= $currentUser ->getImageUrl() ?>" class="rounded-full w-12 h-12 border-2 border-white" alt="">
+                                        <img src="<?= $currentUser->getImageUrl() ?>" class="rounded-full w-12 h-12 border-2 border-white" alt="">
                                     </div>
                                     <div class="flex-1 ml-4">
-                                        <h6 class="font-semibold"><?= $currentUser ->getUsername() ?></h6>
+                                        <h6 class="font-semibold"><?= $currentUser->getUsername() ?></h6>
                                         <form method="post" action="<?= $addNewReportCommentEndpoint ?>" enctype="multipart/form-data">
                                             <div class="img-comment-preview hidden">
                                                 <img src="" alt="" width="100px">
@@ -194,7 +194,7 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
                                         </div>
                                         <hr>
                                         <div class="flex justify-end mt-4">
-                                            <?php if ($currentUser ->isAdmin()) : ?>
+                                            <?php if ($currentUser->isAdmin()) : ?>
                                                 <button type="button" class="btn btn-secondary" onclick="checkVal($(this), $('#status').val())" data-bs-toggle="modal" data-bs-target="#modalConfirmation">
                                                     Save
                                                 </button>
@@ -211,7 +211,94 @@ $isMahasiswa = $user->getRole() == 'mahasiswa';
     </div>
 </div>
 
-<script src="<?= App::get("root_uri") . "/public/js/script.js" ?>"></script>
+<div id="modal-container"></div>
+
 <script>
-    // JS functions remain the same as in the original version.
+    function checkVal(element) {
+        const val = $('#inputGroupSelect01').val();
+        if (val == 'Invalid' || val == 'Valid') {
+            showConfirmationModal(element, val);
+        } else {
+            element.parents('form').submit();
+        }
+    }
+
+    function showConfirmationModal(element, status) {
+        const modal = `
+    <div id="modalConfirmation" tabindex="-1" aria-hidden="true" 
+         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-lg shadow">
+          <div class="p-6 text-center">
+            <i class="bi bi-patch-question text-blue-600 text-8xl"></i>
+            <h4 class="mb-5 text-lg font-normal text-gray-500">
+              Changing status to ${status} will close the report. Are you sure?
+            </h4>
+            <button type="button" id="save"
+                    class="text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+              Save
+            </button>
+            <button type="button" data-modal-hide="modalConfirmation"
+                    class="text-gray-500 bg-white hover:bg-gray-100 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+        $('#modal-container').html(modal);
+
+        const modalElement = document.getElementById('modalConfirmation');
+        const modalInstance = new Flowbite.Modal(modalElement);
+        modalInstance.show();
+
+        $('#save').click(() => {
+            element.parents('form').submit();
+            modalInstance.hide();
+        });
+
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            $('#modalConfirmation').remove();
+        });
+    }
+
+    function checkComment(event, element) {
+        event.preventDefault();
+        const comment = element.parent().siblings().find('textarea').val();
+        if (!comment) {
+            $("div[role=alert]").remove();
+            const flash = `
+      <div class="p-4 mb-4 text-yellow-800 rounded-lg bg-yellow-50" role="alert">
+        <div class="font-medium">Warning!</div>
+        <div>Please fill in the comment before sending.</div>
+      </div>`;
+            $('div[title=flashComment]').before(flash);
+        } else {
+            element.parents('form').submit();
+        }
+    }
+
+    function initImagePreview() {
+        const input = document.getElementById('upload');
+        const preview = document.querySelector('.img-comment-preview');
+        const imgPreview = preview.querySelector('img');
+
+        input.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                preview.classList.remove('hidden');
+                reader.addEventListener('load', () => {
+                    imgPreview.src = reader.result;
+                });
+                reader.readAsDataURL(file);
+            } else {
+                imgPreview.src = '';
+                preview.classList.add('hidden');
+            }
+        });
+    }
+
+    initImagePreview();
 </script>
