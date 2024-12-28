@@ -1,13 +1,3 @@
-# Thinking
-
-
-# Searching
-
-
-# Responding
-
-
-
 #### README for TibMa - Student Regulations 2024 Project Based Learning
 
 **TibMa** is a project aimed at establishing and disseminating student regulations for the year 2024 through a project-based learning approach. This project is designed to help students understand and apply the regulations effectively within the campus environment.
